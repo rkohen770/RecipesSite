@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>טופס הרשמה וכניסה</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="../style/sign_in_up.css">
+  <link rel="icon" href="../imgs/log-in_icon.png" type="image/x-icon" sizes="60*60"/>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div id="sign-in" class="form-wrapper sign-in">
+      <form action="" role="form" onsubmit="signIn(event);" autocomplete="off">
+        <h2>כניסה</h2>
+        <div class="input-group">
+          <input type="text" id="userName" required>
+          <label for="">שם משתמש</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="pswd" required>
+          <label for="">סיסמא</label>
+        </div>
+        <div class="remember">
+          <label><input type="checkbox"> זכור משתמש</label>
+        </div>
+        <button id="signInBtn" type="submit" >כניסה</button>
+        <div class="signUp-link">
+          <p>עדין אין לך חשבון? <a href="#" class="signUpBtn-link">   הרשמה</a></p>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-wrapper sign-up">
+      <form action="" role="form" onsubmit="signUp(event);" id="signUpForm">
+        <h2>הרשמה</h2>
+        <div class="input-group">
+          <input type="text" id="user-name" required>
+          <label for="">שם משתמש</label>
+        </div>
+        <div class="input-group">
+          <input type="email" id="email" required>
+          <label for="">אמייל</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="pwd" required>
+          <label for="">סיסמא</label>
+        </div>
+        <button type="submit">הירשם</button>
+        <div class="signUp-link">
+          <p>יש לך כבר חשבון?  <a href="#" class="signInBtn-link">כניסה</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../script/sign_in_up.js"></script>
+</body>
+
+</html>
