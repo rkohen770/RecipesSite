@@ -8,56 +8,88 @@
   <title>טופס הרשמה וכניסה</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="../style/sign_in_up.css">
+  <link rel="stylesheet" type="text/css" href="../style/main.css">
   <link rel="icon" href="../imgs/log-in_icon.png" type="image/x-icon" sizes="60*60"/>
 </head>
 
 <body>
+  <header>
+    <nav>
+      <div>
+        <a href="index.html">בית</a>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">קטגוריות 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#">עוף ובשר</a>
+          <a href="#">תוספות</a>
+          <a href="#">מרקים</a>
+          <a href="#">דגים</a>
+          <a href="#">פשטידות</a>
+          <a href="#">סלטים</a>
+          <a href="#">לחמים ומאפים</a>
+        </div>
+      </div>
+      <div id="login" class="left-nav">
+        <a href="sign_in_up.html" class="no-decoration">התחברות</a>
+      </div>
+      <div id="logout" class="left-nav">
+        שלום, <a id="profile" href="profile.html"></a> (<a
+          id="logout-link"
+          href="index.html"
+          >התנתקות</a
+        >)
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="wrapper">
+      <div id="sign-in" class="form-wrapper sign-in">
+        <form action="" role="form" onsubmit="signIn(event);" autocomplete="off">
+          <h2>כניסה</h2>
+          <div class="input-group">
+            <input type="text" id="userName" required>
+            <label for="">שם משתמש</label>
+          </div>
+          <div class="input-group">
+            <input type="password" id="pswd" required>
+            <label for="">סיסמא</label>
+          </div>
+          <div class="remember">
+            <label><input type="checkbox"> זכור משתמש</label>
+          </div>
+          <button id="signInBtn" type="submit" >כניסה</button>
+          <div class="signUp-link">
+            <p>עדין אין לך חשבון? <a href="#" class="signUpBtn-link">   הרשמה</a></p>
+          </div>
+        </form>
+      </div>
 
-  <div class="wrapper">
-    <div id="sign-in" class="form-wrapper sign-in">
-      <form action="" role="form" onsubmit="signIn(event);" autocomplete="off">
-        <h2>כניסה</h2>
-        <div class="input-group">
-          <input type="text" id="userName" required>
-          <label for="">שם משתמש</label>
-        </div>
-        <div class="input-group">
-          <input type="password" id="pswd" required>
-          <label for="">סיסמא</label>
-        </div>
-        <div class="remember">
-          <label><input type="checkbox"> זכור משתמש</label>
-        </div>
-        <button id="signInBtn" type="submit" >כניסה</button>
-        <div class="signUp-link">
-          <p>עדין אין לך חשבון? <a href="#" class="signUpBtn-link">   הרשמה</a></p>
-        </div>
-      </form>
+      <div class="form-wrapper sign-up">
+        <form action="" role="form" onsubmit="signUp(event);" id="signUpForm">
+          <h2>הרשמה</h2>
+          <div class="input-group">
+            <input type="text" id="user-name" required>
+            <label for="">שם משתמש</label>
+          </div>
+          <div class="input-group">
+            <input type="email" id="email" required>
+            <label for="">אמייל</label>
+          </div>
+          <div class="input-group">
+            <input type="password" id="pwd" required>
+            <label for="">סיסמא</label>
+          </div>
+          <button type="submit">הירשם</button>
+          <div class="signUp-link">
+            <p>יש לך כבר חשבון?  <a href="#" class="signInBtn-link">כניסה</a></p>
+          </div>
+        </form>
+      </div>
     </div>
-
-    <div class="form-wrapper sign-up">
-      <form action="" role="form" onsubmit="signUp(event);" id="signUpForm">
-        <h2>הרשמה</h2>
-        <div class="input-group">
-          <input type="text" id="user-name" required>
-          <label for="">שם משתמש</label>
-        </div>
-        <div class="input-group">
-          <input type="email" id="email" required>
-          <label for="">אמייל</label>
-        </div>
-        <div class="input-group">
-          <input type="password" id="pwd" required>
-          <label for="">סיסמא</label>
-        </div>
-        <button type="submit">הירשם</button>
-        <div class="signUp-link">
-          <p>יש לך כבר חשבון?  <a href="#" class="signInBtn-link">כניסה</a></p>
-        </div>
-      </form>
-    </div>
-  </div>
-
+  </main>
   <script src="../script/sign_in_up.js"></script>
 </body>
 

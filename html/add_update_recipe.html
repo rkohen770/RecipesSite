@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../style/main.css">
+    <link rel="stylesheet" type="text/css" href="../style/add_update_recipe.css">
+    <title>הוספת מתכון</title>
+</head>
+<body>
+    <header>
+        <nav>
+          <div>
+            <a href="index.html">בית</a>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">קטגוריות 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">עוף ובשר</a>
+              <a href="#">תוספות</a>
+              <a href="#">מרקים</a>
+              <a href="#">דגים</a>
+              <a href="#">פשטידות</a>
+              <a href="#">סלטים</a>
+              <a href="#">לחמים ומאפים</a>
+            </div>
+          </div>
+          <div id="login" class="left-nav">
+            <a href="sign_in_up.html" class="no-decoration">התחברות</a>
+          </div>
+          <div id="logout" class="left-nav">
+            שלום, <a id="profile" href="profile.html"></a> (<a
+              id="logout-link"
+              href="index.html"
+              >התנתקות</a
+            >)
+          </div>
+        </nav>
+    </header>
+      <main>
+        <h1>הוספת מתכון</h1>
+        <form action="index.html" method="post">
+          <div>
+            <label for="name">שם המתכון: </label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="image-div">
+            <label for="image">בחירת תמונה<br/>
+              <i class="fa fa-2x fa-camera"></i>
+              <input id="image" name="image" type="file" accept="image/png, image/jpg, image/gif, image/jpeg" required>
+              <br/>
+              <span id="imageName">לא נבחרה תמונה</span>
+            </label>
+          </div>
+          <fieldset>
+            <legend>קטגוריות:</legend>
+            <div>
+              <input type="checkbox" id="chicken" name="category" value="chicken" />
+              <label for="chicken">עוף ובשר</label>
+            </div>
+            <div>
+              <input type="checkbox" id="extras" name="category" value="extras" />
+              <label for="extras">תוספות</label>
+            </div>
+            <div>
+              <input type="checkbox" id="soups" name="category" value="soups" />
+              <label for="soups">מרקים</label>
+            </div>
+            <div>
+              <input type="checkbox" id="fish" name="category" value="fish" />
+              <label for="fish">דגים</label>
+            </div>
+            <div>
+              <input type="checkbox" id="pies" name="category" value="pies" />
+              <label for="pies">פשטידות</label>
+            </div>
+            <div>
+              <input type="checkbox" id="salads" name="category" value="salads" />
+              <label for="salads">סלטים</label>
+            </div>
+            <div>
+              <input type="checkbox" id="pastries" name="category" value="pastries" />
+              <label for="pastries">לחמים ומאפים</label>
+            </div>
+          </fieldset>
+          <div>
+            <label for="preptime">זמן הכנה: </label>
+            <input type="number" min="1" id="preptime" name="preptime" required /><span>דקות</span>
+          </div>
+          <div>
+            <label for="cooktime">זמן בישול/אפייה: </label>
+            <input type="number" min="1" id="cooktime" name="cooktime" required /><span>דקות</span>
+          </div>
+          <div>
+            <label for="doses">מספר מנות: </label>
+            <input type="number" min="1" id="doses" name="doses" required />
+          </div>
+          <div>
+            <label for="kind">סוג: </label>
+            <select id="kind" name="kind" size="1" multiple required>
+              <option value="meaty">בשרי</option>
+              <option value="dairy">חלבי</option>
+              <option value="parve">פרווה</option>
+            </select>
+          </div>
+          <fieldset>
+            <legend>רכיבים:</legend>
+            <button id="add-btn" type="button" onclick="addComponent()">+</button>
+            <template>
+              <div>
+                <input type="text" name="component" required>
+                <button type="button" onclick="this.parentElement.remove();">&times;</button>
+              </div>
+            </template>
+          </fieldset>
+          <div class="big">
+            <label for="preparation">אופן ההכנה: </label><br>
+            <textarea id="preparation" name="preparation" rows="15" required></textarea>
+          </div>
+          <div class="big">
+            <label for="notes">טיפים והערות: </label><br>
+            <textarea id="notes" name="notes" rows="5"></textarea>
+          </div>
+          <button type="submit">הוספת המתכון</button>
+        </form>
+      </main>
+      <script src="../script/add_update_recipe.js"></script>
+</body>
+</html>
