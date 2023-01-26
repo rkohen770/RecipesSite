@@ -29,6 +29,9 @@
               <a href="#">לחמים ומאפים</a>
             </div>
           </div>
+          <div id="my-recipes">
+            <a href="recipes.html">המתכונים שלי</a>
+          </div>
           <div id="login" class="left-nav">
             <a href="sign_in_up.html" class="no-decoration">התחברות</a>
           </div>
@@ -40,11 +43,13 @@
             >)
           </div>
         </nav>
+        <script src="../script/main.js"></script>
     </header>
     <main>
         <div class="recipes">
             <h1>שם המתכון</h1>
-            <img src="https://www.10dakot.co.il/wp-content/uploads/2022/08/%E2%80%8F%E2%80%8FDSC_0010-%D7%A2%D7%95%D7%AA%D7%A7.jpg" alt="תמונת המתכון">
+            <button class="edit" type="button" title="עריכה"><img src="../images/edit_icon.png" alt="עריכה"></button>
+            <img id="image" src="https://www.10dakot.co.il/wp-content/uploads/2022/08/%E2%80%8F%E2%80%8FDSC_0010-%D7%A2%D7%95%D7%AA%D7%A7.jpg" alt="תמונת המתכון">
             <div class="recipes__header">
                 <div class="recipes__header__inner">
                     <div class="recipes__header-doublecol">
@@ -77,19 +82,20 @@
                     </div>
                 </div>
             </div>
-            <div id="component">
+            <div id="component" class="content">
                 <h2>רכיבים</h2>
                 <p>רכיבים</p>
             </div>
-            <div id="preparation">
+            <div id="preparation" class="content">
                 <h2>אופן ההכנה</h2>
                 <p>אופן ההכנה</p>
             </div>
-            <div id="notes">
+            <div id="notes" class="content">
                 <h2>טיפים והערות</h2>
                 <p>טיפים והערות</p>
             </div>
         </div>
     </main>
+    <script src="../script/recipe.js"></script>
 </body>
 </html>

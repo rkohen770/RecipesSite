@@ -71,7 +71,7 @@ function signIn(e) {
         document.cookie = "currentUser=" + username + ";" + expires + ";path=/";
 
         // <-- insert user name in local storage -->
-        localStorage.setItem('currentUser', JSON.stringify(username));
+        localStorage.setItem('currentUser', username);
         location.href = "../html/homePage.html";
     }
     e.preventDefault();
