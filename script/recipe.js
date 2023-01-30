@@ -12,10 +12,10 @@ preparation: 'מחממים סיר סוטאז’ או סיר רחב (עם ציפ�
 notes: '*אם במהלך הבישול ראיתם שהפסטה יבשה וחסרים נוזלים יש להוסיף עוד מים לפי הצורך.'
 };
 
-initializeRecipe(recipe);
-if (recipe.creator !== localStorage.currentUser) {
+initializeRecipe(recipe);*/
+if (!localStorage.currentUser || recipe.creator !== localStorage.currentUser) {
     document.querySelector('.edit').style.display = 'none';
-}*/
+}
 
 //initialize a recipe in the document
 function initializeRecipe(recipe) {
