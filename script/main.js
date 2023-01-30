@@ -1,4 +1,4 @@
-if (localStorage.currentUser === undefined) {
+if (!localStorage.currentUser) {
     document.getElementById("my-recipes").style.display = "none";
     document.getElementById("logout").style.display = "none";
 } else {

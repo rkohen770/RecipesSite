@@ -1,3 +1,6 @@
+let user = JSON.parse(localStorage.users).
+    find(user => user.username === localStorage.currentUser);
+
 let input = document.getElementById("image");
 let imageName = document.getElementById("imageName");
 
@@ -7,6 +10,7 @@ input.addEventListener("change", ()=>{
     imageName.innerText = inputImage.name;
 });
 
+let indexRecipe = 1;
 let recipe = {name: 'פסטה עם נקניקיות',
 image: 'https://www.10dakot.co.il/wp-content/uploads/2022/08/%E2%80%8F%E2%80%8FDSC_0010-%D7%A2%D7%95%D7%AA%D7%A7.jpg',
 category: ['chicken', 'extras'], preptime: 10, cooktime: 30, doses: '4-5', 
@@ -64,4 +68,72 @@ function setRecipe(recipe) {
         }
     }
     document.querySelector('form button[type=submit]').textContent = "עדכון המתכון";
+}
+
+/**
+ * add or update the recipe in the data base
+ * @returns whether to submit
+ */
+function addUpdateRecipe() {
+    let name = document.getElementById('name').value;
+    let image = input.files?.[0];
+    if (!image) {
+        if (!recipe) {
+            alert('יש לבחור תמונה');
+            return false;
+        } else {
+            image = recipe.image;
+        }
+    } else {
+        image = URL.createObjectURL(image);
+    }
+    let category = [];
+    let categories = document.getElementsByName('category');
+    for (let i = 0; i < categories.length; i++) {
+        if (categories[i].checked) {
+            category[i].push(categories[i].value);
+        }
+    }
+    let preptime = document.getElementById('preptime').value;
+    let cooktime = document.getElementById('cooktime').value;
+    let doses = document.getElementById('doses').value;
+    let kind = [];
+    let kinds = document.getElementById('kind').getElementsByTagName('option');
+    for (let i = 0; i < kinds.length; i++) { 
+        if (kinds[i].selected === 'selected') {
+            kind[i].push(kinds[i].value);
+        }
+    }
+    let component = [];
+    let c = document.getElementsByName('component');
+    for (let i = 0; i < c.length; i++) {
+        component[i].push(c[i].value);
+    }
+    let preparation = document.getElementById('preparation').value;
+    let notes = document.getElementById('notes').value;
+
+    let newRecipe = {
+        creator: user.username,
+        date: new Date().getTime(),
+        name, image, category, preptime, cooktime, doses, kind,
+        component, preparation, notes
+    }
+    const request = new FXMLHttpRequest();
+    request.onreadystatechange = () => {
+        if (request.readyState === 4) {
+            if (request.status === 422) {
+                alert('שם המתכון כבר קיים במאגר, שנו אותו');
+            } else if (request.status === 200 || request.status === 201) {
+                alert('המתכון ' + request.status === 200? 'עודכן': 'התווסף' + ' בהצלחה');
+                location.href = 'index.html';
+            }
+        }
+    }
+    if(recipe) {
+        request.open('PUT', '/recipes/' + indexRecipe, true, user.username, user.pwd); 
+    } else {
+        request.open('POST', '/recipes',  true, user.username, user.pwd);
+    }
+    request.send(JSON.stringify(newRecipe));
+    return false;
 }

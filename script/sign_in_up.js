@@ -21,17 +21,17 @@ function signUp(e) {
         email = document.getElementById('email').value,
         pwd = document.getElementById('pwd').value;
 
-    let formData = JSON.parse(localStorage.getItem('formData')) || [];
+    let formData = JSON.parse(localStorage.getItem('users')) || [];
 
     let exist = formData.length &&
-        JSON.parse(localStorage.getItem('formData')).some(data =>
+        JSON.parse(localStorage.getItem('users')).some(data =>
             data.username.toLowerCase() == username.toLowerCase() &&
             data.pwd == pwd
         );
 
     if (!exist) {
         formData.push({ username, email, pwd , 'scoreX':0, 'scoreO':0, 'scoreDraw':0, 'scoreScaling':0 });
-        localStorage.setItem('formData', JSON.stringify(formData));
+        localStorage.setItem('users', JSON.stringify(formData));
         document.querySelector('form').reset();
         document.getElementById('user-name').focus();
         alert("Account Created.\n\nPlease Sign In.");
@@ -48,10 +48,10 @@ function signIn(e) {
     let username = document.getElementById('userName').value,
         pwd = document.getElementById('pswd').value;
 
-    let formData = JSON.parse(localStorage.getItem('formData')) || [];
+    let formData = JSON.parse(localStorage.getItem('users')) || [];
 
     let exist = formData.length &&
-        JSON.parse(localStorage.getItem('formData')).some(data =>
+        JSON.parse(localStorage.getItem('users')).some(data =>
             data.username.toLowerCase() == username.toLowerCase() &&
             data.pwd == pwd
         );
