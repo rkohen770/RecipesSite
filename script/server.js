@@ -39,6 +39,7 @@ class FXMLHttpRequest {
                     return;
                 }
             }
+            //guest can get only
             if (!user && this._method !== 'GET') {
                 this.status = 403;
                 this.statusText = "Forbidden";
@@ -52,19 +53,19 @@ class FXMLHttpRequest {
                 case 'GET': //get the recipe/s
                     let recipes = this._getRecipes();
                     if(!recipes) break;
-                    if (recipes.type === 'all') { //get all of the recipes
+                    if (recipes.type === 'recipes') { //get all of the recipes
                         res = this.DB.getRecipes();
-                    } else if (recipes.type === 'category') { //get recipes in category
-                        res = this.DB.getRecipes(recipe => recipe.category === recipes.data);
-                    } else { //get one recipe
+                    } else if(recipes.type === 'recipe') { //get one recipe
                         res = this.DB.getRecipe(recipes.data);
+                    } else {//get index of recipe
+                        res = this.DB.findRecipe(recipes.data);
                     }
                     break;
                 case 'POST': //add a recipe
                     recipes = this._getRecipes();
                     if(!recipes) break;
-                    if (recipes.type === 'all') {
-                        res = this.DB.addRecipe(recipes.data, string);
+                    if (recipes.type === 'recipes') {
+                        res = this.DB.addRecipe(string);
                     } else {
                         this.status = 409;
                         this.statusText = "Conflict";
@@ -95,7 +96,7 @@ class FXMLHttpRequest {
                     this.statusText = "Method Not Allowed";
             }
 
-            if (res) {
+            if (res) {//the request was success
                 if (res !== true) {
                     this.responseText = JSON.stringify(res);
                 }
@@ -106,7 +107,7 @@ class FXMLHttpRequest {
                     this.status = 200;
                     this.statusText = 'OK';
                 }
-            } else if (this.method === 'POST') {
+            } else if (this.method === 'POST') { //the request failed
                 this.status = 422;
                 this.statusText = "Unprocessable Entity";
             } else {
@@ -128,15 +129,17 @@ class FXMLHttpRequest {
     _getRecipe() {
         let recipes = null;
         let url = this._url.split('/');
-        if (url[0] === '' && url[1] === 'recipes') {
-            if (url.length === 2) {
-                recipes = {type: 'all', data: ''};
-            } else if (url[2] === 'category') {
-                if (url.length === 4) {
-                    recipes = {type: 'category', data: url[3]}
+        if (url[0] === '' && url[1] === 'api'){
+            if (url[2] === 'recipes') {
+                if (url.length === 3) {
+                    recipes = {type: 'recipes', data: ''};
+                } else if(url.length === 4) {
+                    if (!isNaN(url[3])) {
+                        recipes = {type: 'recipe', data: Number(url[3])};
+                    } else {
+                        recipes = {type: 'find-recipe', data: url[3]};
+                    }
                 }
-            } else if(!isNaN(url[2]) && url.length === 3) {
-                recipes = {type: 'recipe', data: url[2]};
             }
         }
         return recipes;

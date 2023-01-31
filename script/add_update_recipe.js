@@ -130,9 +130,9 @@ function addUpdateRecipe() {
         }
     }
     if(recipe) {
-        request.open('PUT', '/recipes/' + indexRecipe, true, user.username, user.pwd); 
+        request.open('PUT', '/api/recipes/' + indexRecipe, true, user.username, user.pwd); 
     } else {
-        request.open('POST', '/recipes',  true, user.username, user.pwd);
+        request.open('POST', '/api/recipes',  true, user.username, user.pwd);
     }
     request.send(JSON.stringify(newRecipe));
     return false;
