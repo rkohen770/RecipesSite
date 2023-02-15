@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+:root {
+  --text-color: #FFC3A1;
+  --bg-color: #FCF9C6;
+  --text-color-2: #d54c4c;
+  --text-color-3: #8D2828;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,26 +14,22 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
-  min-height: 100vh;
-}
-
 main {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
 }
 
 .wrapper {
   position: relative;
   width: 400px;
   height: 500px;
-  background: rgba(255, 255, 255, .2);
+  background: rgba(255, 255, 255, .3);
   border-radius: 20px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 50px rgba(0, 0, 0, .3);
   padding: 40px;
+  margin: 20px;
 }
 
 .form-wrapper {
@@ -57,10 +60,14 @@ h2 {
   text-align: center;
 }
 
+.titel {
+  color: var(--text-color-2);
+}
+
 .input-group {
   position: relative;
   margin: 30px 0;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid var(--text-color);
 }
 
 .input-group label {
@@ -69,7 +76,7 @@ h2 {
   left: 5px;
   transform: translateY(-50%);
   font-size: 16px;
-  color: #fff;
+  color: var(--text-color);
   pointer-events: none;
   transition: .5s;
 }
@@ -78,7 +85,7 @@ h2 {
   width: 320px;
   height: 40px;
   font-size: 16px;
-  color: rgb(194, 90, 90);
+  color: var(--text-color-2);
   padding: 0 5px;
   background: transparent;
   border: none;
@@ -95,25 +102,29 @@ h2 {
 }
 
 .remember label {
-  color: #fff;
+  color: var(--text-color-2);
   font-size: 14px;
 }
 
 .remember label input {
-  accent-color: #f4157e;
+  accent-color: var(--text-color-3);
 }
 
 button {
   position: relative;
   width: 100%;
   height: 40px;
-  background: #f4157e;
+  background: var(--text-color);
   font-size: 16px;
   color: #fff;
   cursor: pointer;
   border-radius: 30px;
   border: none;
   outline: none;
+}
+
+button:hover {
+  background: var(--text-color-3);
 }
 
 .signUp-link {
@@ -123,11 +134,11 @@ button {
 }
 
 .signUp-link p {
-  color: #fff;
+  color: var(--text-color-2);
 }
 
 .signUp-link p a {
-  color: #f4157e;
+  color: var(--text-color-3);
   text-decoration: none;
   font-weight: 500;
 }

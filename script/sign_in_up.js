@@ -3,7 +3,7 @@ const signInBtnLink = document.querySelector('.signInBtn-link');
 const wrapper = document.querySelector('.wrapper');
 const signUpForm = document.getElementById('signUpForm');
 const userName = document.getElementById('user-name')
-const Uname = document.cookie.split('=')[1] || JSON.parse(localStorage.getItem('currentUser'));
+const Uname = JSON.parse(localStorage.getItem('currentUser'))|| document.cookie.split('=')[1];
 userName.innerText += " " + Uname;
 
 
@@ -30,12 +30,20 @@ function signUp(e) {
         );
 
     if (!exist) {
-        formData.push({ username, email, pwd , 'scoreX':0, 'scoreO':0, 'scoreDraw':0, 'scoreScaling':0 });
+        formData.push({ username, email, pwd });
         localStorage.setItem('users', JSON.stringify(formData));
         document.querySelector('form').reset();
         document.getElementById('user-name').focus();
-        alert("Account Created.\n\nPlease Sign In.");
-        signInBtnLink.click();
+
+        // <-- insert user name in cookie for 10 minutes -->
+        let d = new Date();
+        d.setTime(d.getTime() + (10 * 60 * 1000));
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = "currentUser=" + username + ";" + expires + ";path=/";
+
+        // <-- insert user name in local storage -->
+        localStorage.setItem('currentUser',  JSON.stringify(username));
+        location.href = "../html/home_page.html";
     }
     else {
         alert("Ooopppssss... Duplicate found!!!\nYou have already sigjned up");
@@ -71,8 +79,8 @@ function signIn(e) {
         document.cookie = "currentUser=" + username + ";" + expires + ";path=/";
 
         // <-- insert user name in local storage -->
-        localStorage.setItem('currentUser', username);
-        location.href = "../html/homePage.html";
+        localStorage.setItem('currentUser',  JSON.stringify(username));
+        location.href = "../html/home_page.html";
     }
     e.preventDefault();
 }
@@ -87,7 +95,7 @@ function handleIncorrectLogin(username) {
         );
 
     if (!exist) {
-        incorrectLogin.push({ username, count: 1});
+        incorrectLogin.push({ username, count: 1 });
         localStorage.setItem('incorrectLogin', JSON.stringify(incorrectLogin));
     }
     else {
@@ -103,15 +111,15 @@ function handleIncorrectLogin(username) {
             document.getElementById('userName').disabled = true;
             document.getElementById('pswd').disabled = true;
             document.getElementById('signInBtn').disabled = true;
-            document.getElementById('signInBtn').style.backgroundColor = 'rgba(256, 256, 256, 0.5)';
+            document.getElementById('signInBtn').style.backgroundColor = 'rgba(213, 76, 76, 0.5)';
             document.getElementById('signInBtn').innerText = `Please wait ${time} seconds`;
-            document.getElementById('signInBtn').style.color = '#f4157e';
+            document.getElementById('signInBtn').style.color = '#8D2828';
             time--;
             if (time < 0) {
                 document.getElementById('userName').disabled = false;
                 document.getElementById('pswd').disabled = false;
                 document.getElementById('signInBtn').disabled = false;
-                document.getElementById('signInBtn').style.backgroundColor = '#f4157e';
+                document.getElementById('signInBtn').style.backgroundColor = '#FFC3A1';
                 document.getElementById('signInBtn').innerText = `Sign In`;
                 document.getElementById('signInBtn').style.color = '#fff';
                 clearInterval(interval);

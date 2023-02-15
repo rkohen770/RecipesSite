@@ -7,43 +7,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="../style/main.css">
     <link rel="stylesheet" type="text/css" href="../style/add_update_recipe.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script> 
+        $(function(){
+          $("#navbar").load("../html/navbar.html"); 
+        });
+      </script>
     <title>הוספת מתכון</title>
 </head>
 <body>
-    <header>
-      <nav>
-        <div>
-          <a href="index.html">בית</a>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">קטגוריות 
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="#">עוף ובשר</a>
-            <a href="#">תוספות</a>
-            <a href="#">מרקים</a>
-            <a href="#">דגים</a>
-            <a href="#">פשטידות</a>
-            <a href="#">סלטים</a>
-            <a href="#">לחמים ומאפים</a>
-          </div>
-        </div>
-        <div id="my-recipes">
-          <a href="recipes.html">המתכונים שלי</a>
-        </div>
-        <div id="login" class="left-nav">
-          <a href="sign_in_up.html" class="no-decoration">התחברות</a>
-        </div>
-        <div id="logout" class="left-nav">
-          שלום, <a id="profile" href="profile.html"></a> (<a
-            id="logout-link"
-            href="index.html"
-            >התנתקות</a
-          >)
-        </div>
-      </nav>
-        <script src="../script/main.js"></script>
+  
+    <!-- include navbar.html here -->
+    <div id="navbar"></div>
+    
     </header>
       <main>
         <h1>הוספת מתכון</h1>
