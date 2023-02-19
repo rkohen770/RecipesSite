@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,23 +9,33 @@
     <link rel="stylesheet" type="text/css" href="../style/main.css">
     <link rel="stylesheet" type="text/css" href="../style/recipe.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script> 
-        $(function(){
-          $("#navbar").load("../html/navbar.html"); 
+    <script>
+        $(function () {
+            $("#navbar").load("../html/navbar.html", function () {
+                //get the user name from the local storage
+                var userName = JSON.parse(localStorage.getItem("currentUser"));
+
+                // Get the contents of the logout div and update it with the user name
+                var logoutDiv = document.getElementById("profile");
+                logoutDiv.innerText += userName;
+            });
         });
-      </script> 
+    </script>
     <title>מתכון</title>
 </head>
+
 <body>
-    
+
     <!-- include navbar.html here -->
     <div id="navbar"></div>
-    
+
     <main>
         <div class="recipes">
             <h1>שם המתכון</h1>
             <button class="edit" type="button" title="עריכה"><img src="../images/edit_icon.png" alt="עריכה"></button>
-            <img id="image" src="https://www.10dakot.co.il/wp-content/uploads/2022/08/%E2%80%8F%E2%80%8FDSC_0010-%D7%A2%D7%95%D7%AA%D7%A7.jpg" alt="תמונת המתכון">
+            <img id="image"
+                src="https://www.10dakot.co.il/wp-content/uploads/2022/08/%E2%80%8F%E2%80%8FDSC_0010-%D7%A2%D7%95%D7%AA%D7%A7.jpg"
+                alt="תמונת המתכון">
             <div class="recipes__header">
                 <div class="recipes__header__inner">
                     <div class="recipes__header-doublecol">
@@ -44,7 +55,7 @@
                     <div class="recipes__header-doublecol">
                         <div class="recipes__header-col">
                             <p>
-                                מס' מנות 
+                                מס' מנות
                                 <span>מנות</span>
                             </p>
                         </div>
@@ -73,4 +84,5 @@
     </main>
     <script src="../script/recipe.js"></script>
 </body>
+
 </html>

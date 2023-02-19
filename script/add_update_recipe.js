@@ -36,6 +36,7 @@ function addComponent() {
 
 //set exist recipe in the document to update the recipe
 function setRecipe(recipe) {
+    console.log(JSON.stringify(recipe));
     document.title = "עדכון " + recipe.name;
     document.querySelector('h1').textContent = "עדכון מתכון";
     for (let prop in recipe) {

@@ -1,95 +1,109 @@
 form {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 form button {
-    position: relative;
-    width: 100%;
-    height: 40px;
-    background: #D54C4C;
-    font-size: 16px;
-    color: #fff;
-    border-radius: 30px;
-    border: none;
-    outline: none;
-}
-  
-  form div {
-    width: 100%;
-    height: 30px;
-    margin: 15px 0;
-    display: flex;
-    left: 0;
+  position: relative;
+  width: 100%;
+  height: 40px;
+  background: var(--text-color-3);
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 30px;
+  border: none;
+  outline: none;
 }
 
-  form div.big, div.image-div {
-    display: block;
-    height: max-content;
+button:hover {
+  background: var(--bg-color);
+  border: var(--text-color-3) 1px solid;
+  color: var(--text-color-3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+}
+
+form div {
+  width: 100%;
+  height: 30px;
+  margin: 15px 0;
+  display: flex;
+  left: 0;
+}
+
+form div.big,
+div.image-div {
+  display: block;
+  height: max-content;
 }
 
 form div.image-div {
-    text-align:center;
-    padding:3%;
-    border:thin solid black;
+  text-align: center;
+  padding: 3%;
+  border: thin solid black;
 }
 
 form div.image-div label {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-  form fieldset {
-    padding: 10px;
-  }
-
-  form fieldset div {
-    margin: 0;
-  }
-
-  form fieldset div input[type="text"] {
-    margin: 0 0 5px 0;
-  }
-  
-  form div input, select, textarea, fieldset button {
-    flex: 1;
-    margin-right: 10px;
-    font-size: 16px;
-    color: rgb(194, 90, 90);
-  }
-
-  form div textarea, fieldset button {
-    width: 100%;
-    margin: 0;
-  }
-
-  form fieldset button {
-    height: max-content;
-    text-align: right;
-    background-color: transparent;
-    border: 1px rgb(194, 90, 90) solid;
-    padding-right: 5px;
-    border-radius: 3px;
-  }
-
-  form div span {
-    margin-right: 10px;
-    color: rgb(194, 90, 90);
-  }
-
-  form div input[type="checkbox"] {
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin-left: 10px;
-    accent-color: #D54C4C;
-  }
-
-  form div input[type="file"] {
-    display: none;
-  }
+form fieldset {
+  padding: 10px;
+}
 
 form fieldset div {
-    position: relative;
+  margin: 0;
+}
+
+form fieldset div input[type="text"] {
+  margin: 0 0 5px 0;
+}
+
+form div input,
+select,
+textarea,
+fieldset button {
+  flex: 1;
+  margin-right: 10px;
+  font-size: 16px;
+  color: rgb(194, 90, 90);
+  background: var(--bg-color);
+}
+
+form div textarea,
+fieldset button {
+  width: 100%;
+  margin: 0;
+}
+
+form fieldset button {
+  height: max-content;
+  text-align: right;
+  background-color: transparent;
+  border: 1px rgb(194, 90, 90) solid;
+  padding-right: 5px;
+  border-radius: 3px;
+}
+
+form div span {
+  margin-right: 10px;
+  color: rgb(194, 90, 90);
+}
+
+form div input[type="checkbox"] {
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-left: 10px;
+  accent-color: #D54C4C;
+}
+
+form div input[type="file"] {
+  display: none;
+}
+
+form fieldset div {
+  position: relative;
 }
 
 form fieldset div input~button {
@@ -114,20 +128,20 @@ form fieldset div input~button {
 }
 
 form fieldset div input~button:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
-  
-  form div label {
-    align-self: center;
-    width: 6.6em;
-  }
+
+form div label {
+  align-self: center;
+  width: 6.6em;
+}
 
 form div select option {
-    color: rgb(194, 90, 90) solid;
-    background-color: white;
+  color: rgb(194, 90, 90) solid;
+  background-color: white;
 }
 
 form div select option:checked {
-    background-color: #c25a5a;
-    color: white;
+  background-color: #c25a5a;
+  color: white;
 }

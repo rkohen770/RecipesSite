@@ -44,12 +44,15 @@ function signUp(e) {
         // <-- insert user name in local storage -->
         localStorage.setItem('currentUser',  JSON.stringify(username));
         location.href = "../html/home_page.html";
+
+
     }
     else {
         alert("Ooopppssss... Duplicate found!!!\nYou have already sigjned up");
     }
     e.preventDefault();
 }
+
 
 // <-- Sign In -->
 function signIn(e) {
