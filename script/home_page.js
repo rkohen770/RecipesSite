@@ -73,7 +73,7 @@ function createRecipeCard(recipe) {
       </ul>
     </div>
   
-    <h1>${recipe.title}</h1>
+    <h2>${recipe.title}</h2>
   `;
 
     // Add the recipe card to the container

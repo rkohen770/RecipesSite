@@ -1,4 +1,4 @@
-class FXMLHttpRequest {
+export class FXMLHttpRequest {
     constructor() {
         this.onload = () => {};
         this.onreadystatechange = () => {};

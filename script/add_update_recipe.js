@@ -1,5 +1,5 @@
-let user = JSON.parse(localStorage.users).
-    find(user => user.username === localStorage.currentUser);
+//let user = JSON.parse(localStorage.users).
+//    find(user => user.username === localStorage.currentUser);
 
 let input = document.getElementById("image");
 let imageName = document.getElementById("imageName");
