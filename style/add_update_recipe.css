@@ -129,6 +129,9 @@ form fieldset div input~button {
 
 form fieldset div input~button:hover {
   background-color: #ddd;
+  border: none;
+  color: black;
+  box-shadow: none;
 }
 
 form div label {
