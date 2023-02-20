@@ -35,7 +35,7 @@ const recipeData = {
     imageUrl: "https://assets.codepen.io/17119/anna-tukhfatullina-food-photographer-stylist-Mzy-OjtCI70-unsplash.jpg",
     dishType: "עיקרי",
     cookTime: "2.5hrs",
-    title: "Delicious Cake with Pistachio and Raspberries"
+    name: "Delicious Cake with Pistachio and Raspberries"
 };
 
 // Get the container element for the recipe cards
@@ -73,7 +73,7 @@ function createRecipeCard(recipe) {
       </ul>
     </div>
   
-    <h1>${recipe.title}</h1>
+    <h1>${recipe.name}</h1>
   `;
 
     // Add the recipe card to the container
