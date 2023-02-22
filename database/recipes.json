@@ -1,6 +1,8 @@
 {
-    "list-of-recipes": [
+    "recipes": [
         {
+            "creator": "tchelet",
+            "date": 900000,
             "name": "פסטה עם נקניקיות",
             "image": "https://www.10dakot.co.il/wp-content/uploads/2022/08/%E2%80%8F%E2%80%8FDSC_0010-%D7%A2%D7%95%D7%AA%D7%A7.jpg",
             "category": [

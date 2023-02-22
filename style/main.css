@@ -99,6 +99,9 @@ header nav div a:hover {
     font-size: larger;
 }
 
+main {
+    padding: 3em 6% 20px;
+}
 
 main h1 {
     text-align: center;
@@ -124,6 +127,6 @@ div.page {
     min-height: 100%;
 }
 
-div.active{
+div.page.active{
     display: block; 
 }

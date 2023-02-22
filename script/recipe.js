@@ -1,5 +1,3 @@
-let indexRecipe = 0;
-let recipe = {};
 document.getElementById('recipe').addEventListener('show', (ev) => {
     indexRecipe =  ev.target.getAttribute('data-recipe');
     /*recipe = {creator: 'tchelet',
@@ -17,10 +15,19 @@ document.getElementById('recipe').addEventListener('show', (ev) => {
     recipe = JSON.parse(new FXMLHttpRequest().
         open('GET', '/api/recipes/' + indexRecipe).responseText);
     initializeRecipe(recipe);
+    let editBtns = document.getElementsByClassName('.edit');
     if (!localStorage.currentUser || recipe.creator !== localStorage.currentUser) {
-        document.querySelector('.edit').style.display = 'none';
+        for (let eb of editBtns) {
+            eb.style.display = 'none';
+        }
     } else {
-        document.querySelector('.edit').setAttribute('data-recipe', indexRecipe);
+        for (let eb of editBtns) {
+            if (eb.style.classList.contains('delete')) {
+                eb.addEventListener('click', removeRecipe);
+            } else {
+               eb.setAttribute('data-recipe', indexRecipe); 
+            }
+        }
     }
 });
 
@@ -73,5 +80,23 @@ function setTime(minutes) {
             return "חצי שעה";
         }
         return minutes + " דקות";
+    }
+}
+
+function removeRecipe() {
+    let ok = confirm('לאחר המחיקה, המתכון ימחק לצמיתות.\nהאם אתם בטוחים שאתם רוצים למחוק את המתכון?');
+    if(ok) {
+        let httpReq = new FXMLHttpRequest();
+        httpReq.open('DELETE', '/api/recipes/' + indexRecipe);
+        httpReq.send();
+        httpReq.onreadystatechange = () => {
+            if(httpReq.readyState === 4) {
+                if (httpReq.status === 200) {
+                    alert('המתכון נמחק בהצלחה');
+                } else {
+                    alert('המחיקה נכשלה');
+                }
+            }
+        }
     }
 }

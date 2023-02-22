@@ -1,11 +1,11 @@
 
 /*style for the display of a recipe*/
-* {
+/** {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-}
+}*/
 
 .recipes {
     width: 100%;
@@ -14,15 +14,15 @@
     position: relative;
 }
 
-h1 {
+.recipes h1 {
     font-size: 40px;
 }
 
-h2 {
+.recipes h2 {
     font-size: 35px;
 }
 
-img {
+.recipes img {
     display: block;
     width: 90%;
     max-width: 500px;
@@ -31,7 +31,7 @@ img {
     opacity: 75%;
 }
 
-p {
+.recipes p {
     font-size: 18px;
 }
 
@@ -67,7 +67,7 @@ p {
     font-size: 30px;
 }
 
-div.content {
+.recipes div.content {
     margin-top: 20px;
 }
 
@@ -86,11 +86,15 @@ button.edit {
     opacity: 0.5;
 }
 
+button.edit.delete {
+    left: 40px;
+}
+
 button.edit:hover {
     opacity: 1;
 }
 
-button img {
+.recipes button img {
     width: 100%;
     height: 100%;
     border-radius: 0;

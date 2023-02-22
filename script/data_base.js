@@ -1,6 +1,6 @@
 export class DataBase {
     constructor() {
-        this.recipes = localStorage.users? JSON.parse(localStorage.users) : [];
+        this.recipes = localStorage.recipes? JSON.parse(localStorage.resipes) : [];
     }
 
     //return all the recipes

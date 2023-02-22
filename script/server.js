@@ -1,5 +1,5 @@
 import { DataBase } from './data_base'
-export class FXMLHttpRequest {
+class FXMLHttpRequest {
     constructor() {
         this.onload = () => {};
         this.onreadystatechange = () => {};
