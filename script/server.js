@@ -1,3 +1,4 @@
+import { DataBase } from './data_base'
 export class FXMLHttpRequest {
     constructor() {
         this.onload = () => {};

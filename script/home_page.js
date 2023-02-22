@@ -16,7 +16,7 @@ function getRecipeData() {
 
 
 
-searchBtn = document.getElementById("searchBtn");
+const searchBtn = document.getElementById("searchBtn");
 // search for the text in the search box
 function search() {
     var searchBox = document.getElementById("searchBox");

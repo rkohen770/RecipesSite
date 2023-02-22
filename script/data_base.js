@@ -1,4 +1,4 @@
-class DataBase {
+export class DataBase {
     constructor() {
         this.recipes = localStorage.users? JSON.parse(localStorage.users) : [];
     }
