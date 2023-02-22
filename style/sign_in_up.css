@@ -13,6 +13,7 @@ main {
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 60px 6% 15px;
 }
 
 .wrapper {
