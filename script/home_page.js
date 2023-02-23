@@ -1,24 +1,28 @@
 // Description: This file contains the code for the home page
-
+import { FXMLHttpRequest } from "./server";
 const dataCardTemplate = document.querySelector("[data-recipe-template]")
 const cardContainer = document.querySelector("[data-card-container]")
 //main code of creating the cards
 // Define the recipe data
-const recipeData = {
-    image: "https://assets.codepen.io/17119/anna-tukhfatullina-food-photographer-stylist-Mzy-OjtCI70-unsplash.jpg",
-    kind: "עיקרי",
-    cookTime: "2.5hrs",
-    name: "עוגת שכבות, פירות - יער  וקצפת"
-};
+// const recipeData = {
+//     image: "https://assets.codepen.io/17119/anna-tukhfatullina-food-photographer-stylist-Mzy-OjtCI70-unsplash.jpg",
+//     kind: "עיקרי",
+//     cookTime: "2.5hrs",
+//     name: "עוגת שכבות, פירות - יער  וקצפת"
+// };
 
 
 //  <================= Create Cards =================>
 init();
 
 function init(){
-    for (let i = 0; i < 10; i++) {
-        createRecipeCard(recipeData, i);
-    }
+
+    var recipeData = getRecipeData();
+    console.log(recipeData);
+
+    // for (let i = 0; i < 10; i++) {
+    //     createRecipeCard(recipeData, i);
+    // }
 }
 // Create a new recipe card element and set its innerHTML
 function createRecipeCard(recipe, i) {
@@ -38,17 +42,17 @@ function createRecipeCard(recipe, i) {
 //   <=============== End Create Cards ===============>
 
 //get the recipe data from the server
-//var recipeData = getRecipeData();
+
 
 function getRecipeData() {
-    var recipeData = null;
+    var Data = null;
     var fxhr = new FXMLHttpRequest();
-    fxhr.open("GET", "");
+    fxhr.open("GET", "/api/recipes");
     fxhr.send();
     if (fxhr.status == 200) {
-        recipeData = JSON.parse(fxhr.responseText);
+        Data = JSON.parse(fxhr.responseText);
     }
-    return recipeData;
+    return Data;
 }
 
 
