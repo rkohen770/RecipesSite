@@ -1,5 +1,5 @@
 document.getElementById('recipe').addEventListener('show', (ev) => {
-    indexRecipe =  ev.target.getAttribute('data-recipe');
+    let nameRecipe =  ev.target.getAttribute('data-recipe');
     /*recipe = {creator: 'tchelet',
     date: new Date(),
         name: 'פסטה עם נקניקיות',
@@ -12,20 +12,20 @@ document.getElementById('recipe').addEventListener('show', (ev) => {
     preparation: 'מחממים סיר סוטאז’ או סיר רחב (עם ציפוי שאינו נדבק) עם 2 כפות שמן ומטגנים את השום הקצוץ על אש בינונית-נמוכה במשך כדקה (שימו לב לא לשרוף אותו!).\n\nמוסיפים רסק עגבניות, 7 כוסות מים, כף פסטו ומתבלים בפפריקה, מלח ופלפל שחור. מערבבים על אש בינונית-גבוהה במשך כ-3 דקות.\n\nמצמידים חבילה של 6 מקלות ספגטי ומשחילים לתוכה פרוסת נקניקייה (אפשר לוותר על שלב זה ולהוסיף את הנקניקיות בנפרד).\n\nמוסיפים את הפסטה והנקניקיות לרוטב ומערבבים. מבשלים על אש בינונית-נמוכה במשך 25 דקות (חשוב: כל 5 דקות יש להרים את המכסה ולערבב. בהתחלה מערבבים עם כף עץ ואח”כ עם מזלג, כדי להפריד את הספגטי).\n\nלאחר 25 דקות, מכבים את האש ומשאירים את הסיר מכוסה 5 דקות.',
     notes: '*אם במהלך הבישול ראיתם שהפסטה יבשה וחסרים נוזלים יש להוסיף עוד מים לפי הצורך.'
     };*/
-    recipe = JSON.parse(new FXMLHttpRequest().
-        open('GET', '/api/recipes/' + indexRecipe).responseText);
+    recipe = getRecipe(nameRecipe);
     initializeRecipe(recipe);
-    let editBtns = document.getElementsByClassName('.edit');
-    if (!localStorage.currentUser || recipe.creator !== localStorage.currentUser) {
-        for (let eb of editBtns) {
-            eb.style.display = 'none';
+    let editBtns = document.getElementsByClassName('edit');
+    if (!localStorage.currentUser || recipe.creator !== JSON.parse(localStorage.currentUser)) {
+        for (let i = 0; i < editBtns.length; i++) {
+            editBtns[i].style.display = 'none';
         }
     } else {
-        for (let eb of editBtns) {
-            if (eb.style.classList.contains('delete')) {
-                eb.addEventListener('click', removeRecipe);
+        for (let i = 0; i < editBtns.length; i++) {
+            if (editBtns[i].classList.contains('delete')) {
+                editBtns[i].addEventListener('click', removeRecipe);
             } else {
-               eb.setAttribute('data-recipe', indexRecipe); 
+                editBtns[i].setAttribute('data-recipe', nameRecipe);
+                editBtns[i].firstElementChild.setAttribute('data-recipe', nameRecipe);
             }
         }
     }
@@ -34,7 +34,7 @@ document.getElementById('recipe').addEventListener('show', (ev) => {
 //initialize a recipe in the document
 function initializeRecipe(recipe) {
     document.title = recipe.name;
-    document.querySelector('h1').textContent = recipe.name;
+    document.querySelector('#recipe h1').textContent = recipe.name;
     document.getElementById('image-recipe').src = recipe.image;
     let headerCols = document.querySelectorAll('.recipes__header-col span');
     headerCols[0].textContent = setTime(recipe.preptime);
@@ -87,12 +87,13 @@ function removeRecipe() {
     let ok = confirm('לאחר המחיקה, המתכון ימחק לצמיתות.\nהאם אתם בטוחים שאתם רוצים למחוק את המתכון?');
     if(ok) {
         let httpReq = new FXMLHttpRequest();
-        httpReq.open('DELETE', '/api/recipes/' + indexRecipe);
+        httpReq.open('DELETE', '/api/recipes/' + indexRecipe, true, user.username, user.pwd);
         httpReq.send();
         httpReq.onreadystatechange = () => {
             if(httpReq.readyState === 4) {
                 if (httpReq.status === 200) {
                     alert('המתכון נמחק בהצלחה');
+                    location.reload();
                 } else {
                     alert('המחיקה נכשלה');
                 }

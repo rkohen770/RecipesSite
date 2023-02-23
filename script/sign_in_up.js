@@ -44,8 +44,9 @@ function signUp(e) {
         // <-- insert user name in local storage -->
         localStorage.setItem('currentUser',  JSON.stringify(username));
         //location.href = "../html/home_page.html";
-        app.goToPage(document.getElementById('signUpBtn'));
-        initHeader();
+        //app.goToPage(document.getElementById('signUpBtn'));
+        //initHeader();
+        location.reload();
     }
     else {
         alert("Ooopppssss... Duplicate found!!!\nYou have already sigjned up");
@@ -84,8 +85,9 @@ function signIn(e) {
         // <-- insert user name in local storage -->
         localStorage.setItem('currentUser',  JSON.stringify(username));
         //location.href = "../html/home_page.html";
-        app.goToPage(document.getElementById('signInBtn'));
-        initHeader();
+        //app.goToPage(document.getElementById('signInBtn'));
+        //initHeader();
+        location.reload();
     }
     e.preventDefault();
 }

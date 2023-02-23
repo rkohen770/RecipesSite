@@ -62,9 +62,9 @@
 }
 
 #add-update-recipe form div input,
-select,
-textarea,
-fieldset button {
+#add-update-recipe form select,
+#add-update-recipe form textarea,
+#add-update-recipe form fieldset button {
   flex: 1;
   margin-right: 10px;
   font-size: 16px;
@@ -73,7 +73,7 @@ fieldset button {
 }
 
 #add-update-recipe form div textarea,
-fieldset button {
+#add-update-recipe form fieldset button {
   width: 100%;
   margin: 0;
 }

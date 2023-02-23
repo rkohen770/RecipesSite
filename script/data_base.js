@@ -1,6 +1,6 @@
-export class DataBase {
+class DataBase {
     constructor() {
-        this.recipes = localStorage.recipes? JSON.parse(localStorage.resipes) : [];
+        this.recipes = localStorage.recipes? JSON.parse(localStorage.recipes) : [];
     }
 
     //return all the recipes
@@ -20,7 +20,7 @@ export class DataBase {
         //make sure the name doesn't exist
         if (this.recipes.some(r => r.name === recipe.name)) return false;
         this.recipes.push(recipe);
-        localStorage.users = JSON.stringify(this.recipes);
+        localStorage.recipes = JSON.stringify(this.recipes);
         return true;
     }
 
@@ -31,7 +31,7 @@ export class DataBase {
         //make sure there is a recipe in the index
         if (!this.recipes[index]) return false;
         this.recipes[index] = recipe;
-        localStorage.users = JSON.stringify(this.recipes);
+        localStorage.recipes = JSON.stringify(this.recipes);
         return true;
     }
 
@@ -47,7 +47,7 @@ export class DataBase {
         //make sure there is a recipe in the index
         if (!this.recipes[index]) return false;
         this.recipes.splice(index, 1);
-        localStorage.users = JSON.stringify(this.recipes);
+        localStorage.recipes = JSON.stringify(this.recipes);
         return true;
     }
 }

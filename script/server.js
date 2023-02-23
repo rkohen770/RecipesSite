@@ -1,4 +1,3 @@
-import { DataBase } from './data_base'
 class FXMLHttpRequest {
     constructor() {
         this.onload = () => {};
@@ -18,7 +17,7 @@ class FXMLHttpRequest {
     }
 
     send(string = null) {
-        if (string === null && (method === 'POST' || method === 'PUT')) {
+        if (string === null && (this._method === 'POST' || this._method === 'PUT')) {
             console.assert('יש לשלוח מחרוזת לשליחה');
         }
         //the function to do on send
@@ -31,7 +30,7 @@ class FXMLHttpRequest {
             //find user
             if (this._user) {
                 let users = JSON.parse(localStorage.users);
-                user = users.find(u => u.username === user);
+                user = users.find(u => u.username === this._user);
                 if (user?.pwd !== this._psw) {
                     this.status = 401;
                     this.statusText = "Unauthorized";
@@ -50,9 +49,10 @@ class FXMLHttpRequest {
             }
 
             let res;
+            let recipes;
             switch(this._method) {
                 case 'GET': //get the recipe/s
-                    let recipes = this._getRecipes();
+                    recipes = this._getRecipes();
                     if(!recipes) break;
                     if (recipes.type === 'recipes') { //get all of the recipes
                         res = this.DB.getRecipes();
@@ -97,18 +97,18 @@ class FXMLHttpRequest {
                     this.statusText = "Method Not Allowed";
             }
 
-            if (res) {//the request was success
+            if (!(res === -1 || res === "" || res === false || res === undefined || res === null)) {//the request was success
                 if (res !== true) {
                     this.responseText = JSON.stringify(res);
                 }
-                if (this.method === 'POST') {
+                if (this._method === 'POST') {
                     this.status = 201;
                     this.statusText = 'Created';
                 } else {
                     this.status = 200;
                     this.statusText = 'OK';
                 }
-            } else if (this.method === 'POST') { //the request failed
+            } else if (this._method === 'POST') { //the request failed
                 this.status = 422;
                 this.statusText = "Unprocessable Entity";
             } else {
@@ -117,7 +117,7 @@ class FXMLHttpRequest {
             }
             this.readyState = 4;
             this.onreadystatechange();
-            if (res) this.onload();
+            if (!(res === -1 || res === "" || res === false || res === undefined || res === null)) this.onload();
         }
 
         if(this._async) {
@@ -127,18 +127,18 @@ class FXMLHttpRequest {
         }
     }
 
-    _getRecipe() {
+    _getRecipes() {
         let recipes = null;
-        let url = this._url.split('/');
-        if (url[0] === '' && url[1] === 'api'){
-            if (url[2] === 'recipes') {
-                if (url.length === 3) {
+        let address = this._url.split('/');
+        if (address[0] === '' && address[1] === 'api'){
+            if (address[2] === 'recipes') {
+                if (address.length === 3) {
                     recipes = {type: 'recipes', data: ''};
-                } else if(url.length === 4) {
-                    if (!isNaN(url[3])) {
-                        recipes = {type: 'recipe', data: Number(url[3])};
+                } else if(address.length === 4) {
+                    if (!isNaN(address[3])) {
+                        recipes = {type: 'recipe', data: Number(address[3])};
                     } else {
-                        recipes = {type: 'find-recipe', data: url[3]};
+                        recipes = {type: 'find-recipe', data: address[3]};
                     }
                 }
             }

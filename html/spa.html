@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="../style/add_update_recipe.css">
     <!--for the recipe display page-->
     <link rel="stylesheet" type="text/css" href="../style/recipe.css">
+    <script src="../script/server.js"></script>
+    <script src="../script/data_base.js"></script>
     <title>מתכונים</title>
 </head>
 <body>
@@ -40,6 +42,9 @@
             </div>
             <div id="my-recipes">
                 <a href="#" data-target="home-page" data-category="my" class="link">המתכונים שלי</a>
+            </div>
+            <div id="add-recipe">
+              <a href="#" data-target="add-update-recipe" data-recipe="" class="link">הוספת מתכון</a>
             </div>
             <div id="login" class="left-nav">
                 <a href="#" class="link" data-target="sign-in-up" class="no-decoration link">התחברות</a>
@@ -165,7 +170,7 @@
               </div>
               <script src="../script/sign_in_up.js"></script>
         </div>
-        <div class="page" id="add-update-recipe" data-recipe="1">
+        <div class="page" id="add-update-recipe" data-recipe="פסטה עם נקניקיות">
             <h1>הוספת מתכון</h1>
             <form method="post" onsubmit="return addUpdateRecipe()">
             <div>
@@ -175,7 +180,7 @@
             <div class="image-div">
                 <label for="image">בחירת תמונה<br />
                 <i class="fa fa-2x fa-camera"></i>
-                <input id="image" name="image" type="file" accept="image/png, image/jpg, image/gif, image/jpeg" required>
+                <input id="image" name="image" type="file" accept="image/png, image/jpg, image/gif, image/jpeg">
                 <br />
                 <span id="imageName">לא נבחרה תמונה</span>
                 </label>
@@ -249,14 +254,14 @@
                 <label for="notes">טיפים והערות: </label><br>
                 <textarea id="notes" name="notes" rows="5"></textarea>
             </div>
-            <button type="submit">הוספת המתכון</button>
+            <button type="submit" data-target="recipe" data-recipe="">הוספת המתכון</button>
             </form>
             <script src="../script/add_update_recipe.js"></script>
         </div>
-        <div class="page" id="recipe" data-recipe="1">
+        <div class="page" id="recipe" data-recipe="פסטה עם נקניקיות">
             <div class="recipes">
                 <h1>שם המתכון</h1>
-                <button class="edit" type="button" title="עריכה"><img src="../images/edit_icon.png" alt="עריכה"></button>
+                <button class="edit link" type="button" title="עריכה" data-target="add-update-recipe" data-recipe=""><img data-target="add-update-recipe" data-recipe="" src="../images/edit_icon.png" alt="עריכה"></button>
                 <button class="edit delete" type="button" title="מחיקה"><img src="../images/delete_icon.png" alt="מחיקה"></button>
                 <img id="image-recipe"
                     src="https://www.10dakot.co.il/wp-content/uploads/2022/08/%E2%80%8F%E2%80%8FDSC_0010-%D7%A2%D7%95%D7%AA%D7%A7.jpg"
