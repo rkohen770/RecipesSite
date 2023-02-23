@@ -1,3 +1,4 @@
+/*style for all the pages*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
@@ -98,6 +99,9 @@ header nav div a:hover {
     font-size: larger;
 }
 
+main {
+    padding: 3em 6% 20px;
+}
 
 main h1 {
     text-align: center;
@@ -115,4 +119,14 @@ main ::selection {
 
 button {
     cursor: pointer;
+}
+
+div.page {
+    display: none;
+    width: 100%;
+    min-height: 100%;
+}
+
+div.page.active{
+    display: block; 
 }

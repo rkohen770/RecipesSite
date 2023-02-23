@@ -1,14 +1,12 @@
-main {
+.main {
     display: grid;
     justify-content: space-between;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
 }
 
-h1 {
+h1.home {
     align-items: center;
-    text-align: center;
-    color: var(--text-color-3);
     margin-top: 10px;
 }
 

@@ -31,14 +31,15 @@
   <div id="navbar"></div>
 
   <!-- search section -->
+  <main>
   <div class="searchbar">
     <input id="searchBox" type="text" class="searchbar__input" name="q" placeholder="חפש מתכון" data-search>
     <div for="searchBox" id="searchBtn" type="submit" class="searchbar__button">
       <i class="material-icons">search</i>
     </div>
   </div>
-  <h1>מתכונים חדשים</h1>
-  <main id="cardContainer" data-card-container>
+  <h1 class="home">מתכונים חדשים</h1>
+  <div class="main" id="cardContainer" data-card-container>
     <!-- <div class="recipe-card">
       <figure>
         <img src="https://assets.codepen.io/17119/anna-tukhfatullina-food-photographer-stylist-Mzy-OjtCI70-unsplash.jpg"
@@ -63,7 +64,8 @@
 
     <!-- <h2>Delicious Cake with Pistachio and Raspberries</h2> 
     </div> end recipe-card -->
-  </main>
+  </div>
+</main>
 
   <template data-recipe-template>
     <div class="recipe-card">
