@@ -18,7 +18,7 @@ input.addEventListener("change", ()=>{
 document.getElementById('add-update-recipe').addEventListener('show', (ev) => {
 
     let nameRecipe = ev.target.getAttribute('data-recipe');
-    if(indexRecipe) {
+    if(nameRecipe) {
         recipe = {name: 'פסטה עם נקניקיות',
         image: 'https://www.10dakot.co.il/wp-content/uploads/2022/08/%E2%80%8F%E2%80%8FDSC_0010-%D7%A2%D7%95%D7%AA%D7%A7.jpg',
         category: ['chicken', 'extras'], preptime: 10, cooktime: 30, doses: '4-5', 
