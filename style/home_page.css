@@ -2,12 +2,16 @@
     display: grid;
     justify-content: space-between;
     align-items: center;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
 h1.home {
     align-items: center;
     margin-top: 10px;
+}
+
+.hidden {
+    display: none;
 }
 
 .searchbar {
