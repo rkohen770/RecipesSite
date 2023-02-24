@@ -8,14 +8,14 @@ const app = {
         })
         
         document.querySelectorAll('.link').forEach((link)=>{
-            link.addEventListener('click', app.pageLink);
+            link.addEventListener('click', (ev) =>{ app.pageLink(link, ev) });
         })
         history.replaceState({}, 'home-page/new', '#home-page/new');
         window.addEventListener('popstate', app.poppin);
     },
-    pageLink: function(ev){
+    pageLink: function(link, ev){
         ev.preventDefault();
-        app.goToPage(ev.target);
+        app.goToPage(link);
     },
     goToPage: function(buttonLink) {
         let currentPage = buttonLink.getAttribute('data-target');
