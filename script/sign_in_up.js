@@ -4,7 +4,7 @@ const wrapper = document.querySelector('.wrapper');
 const signUpForm = document.getElementById('signUpForm');
 const userName = document.getElementById('user-name')
 const Uname = JSON.parse(localStorage.getItem('currentUser'))|| document.cookie.split('=')[1];
-userName.innerText += " " + Uname;
+userName.innerText += " " + Uname.username;
 
 
 signUpBtnLink.addEventListener('click', () => {
@@ -17,7 +17,7 @@ signInBtnLink.addEventListener('click', () => {
 
 //  <-- Sign Up -->
 function signUp(e) {
-    username = document.getElementById('user-name').value,
+        username = document.getElementById('user-name').value,
         email = document.getElementById('email').value,
         pwd = document.getElementById('pwd').value;
 
@@ -30,22 +30,21 @@ function signUp(e) {
         );
 
     if (!exist) {
-        formData.push({ username, email, pwd });
+        let user = { username, email, pwd };
+        formData.push(user);
         localStorage.setItem('users', JSON.stringify(formData));
-        document.querySelector('form').reset();
+        document.querySelector('#sign-in-up form').reset();
         document.getElementById('user-name').focus();
 
         // <-- insert user name in cookie for 10 minutes -->
         let d = new Date();
         d.setTime(d.getTime() + (10 * 60 * 1000));
         let expires = "expires=" + d.toUTCString();
-        document.cookie = "currentUser=" + username + ";" + expires + ";path=/";
+        document.cookie = "currentUser=" + JSON.stringify(user) + ";" + expires + ";path=/";
 
         // <-- insert user name in local storage -->
-        localStorage.setItem('currentUser',  JSON.stringify(username));
+        localStorage.setItem('currentUser',  JSON.stringify(user));
         //location.href = "../html/home_page.html";
-        //app.goToPage(document.getElementById('signUpBtn'));
-        //initHeader();
         location.reload();
     }
     else {
@@ -62,13 +61,13 @@ function signIn(e) {
 
     let formData = JSON.parse(localStorage.getItem('users')) || [];
 
-    let exist = formData.length &&
-        JSON.parse(localStorage.getItem('users')).some(data =>
+    let user = formData.length &&
+        JSON.parse(localStorage.getItem('users')).find(data =>
             data.username.toLowerCase() == username.toLowerCase() &&
             data.pwd == pwd
         );
 
-    if (!exist) {
+    if (!user) {
         alert("Invalid Username or Password");
         handleIncorrectLogin(username);
     }
@@ -80,13 +79,11 @@ function signIn(e) {
         let d = new Date();
         d.setTime(d.getTime() + (10 * 60 * 1000));
         let expires = "expires=" + d.toUTCString();
-        document.cookie = "currentUser=" + username + ";" + expires + ";path=/";
+        document.cookie = "currentUser=" + JSON.stringify(user) + ";" + expires + ";path=/";
 
         // <-- insert user name in local storage -->
-        localStorage.setItem('currentUser',  JSON.stringify(username));
+        localStorage.setItem('currentUser',  JSON.stringify(user));
         //location.href = "../html/home_page.html";
-        //app.goToPage(document.getElementById('signInBtn'));
-        //initHeader();
         location.reload();
     }
     e.preventDefault();

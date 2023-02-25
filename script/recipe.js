@@ -15,7 +15,7 @@ document.getElementById('recipe').addEventListener('show', (ev) => {
     recipe = getRecipe(nameRecipe);
     initializeRecipe(recipe);
     let editBtns = document.getElementsByClassName('edit');
-    if (!localStorage.currentUser || recipe.creator !== JSON.parse(localStorage.currentUser)) {
+    if (!user || recipe.creator !== user.username) {
         for (let i = 0; i < editBtns.length; i++) {
             editBtns[i].style.display = 'none';
         }
@@ -47,6 +47,39 @@ function initializeRecipe(recipe) {
         document.querySelector('#notes-recipe p').innerHTML = recipe.notes.replace('\n', '<br>');
     } else {
         document.getElementById('notes-recipe').style.display = 'none';
+    }
+}
+
+//convert number of minutes to apropriate time string
+function setTime(minutes) {
+    if (minutes >= 60) {
+        let m = minutes % 60;
+        let h = (minutes - m) / 60;
+        if (h === 1) {
+            h = "שעה";
+        } else if (h === 2) {
+            h = "שעתיים";
+        } else {
+            h = h + " שעות";
+        }
+        if (m === 0) {
+            m = ""
+        } else if (m === 15) {
+            m = " ורבע";
+        } else if (m === 30) {
+            m = " וחצי";
+        } else {
+            m = ` ו-${m} דקות`;
+        }
+        return h + m;
+    } else {
+        if (minutes === 15) {
+            return "רבע שעה";
+        } 
+        if (minutes === 30) {
+            return "חצי שעה";
+        }
+        return minutes + " דקות";
     }
 }
 
