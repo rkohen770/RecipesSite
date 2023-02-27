@@ -1,319 +1,295 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../style/main.css">
-    <!--for the home page-->
-    <link rel="stylesheet" type="text/css" href="../style/home_page.css">
-    <link rel="stylesheet" type="text/css" href="../style/cards.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--for the sign in and up page-->
-    <link rel="stylesheet" type="text/css" href="../style/sign_in_up.css">
-    <!--for the add and update recipe page-->
-    <link rel="stylesheet" type="text/css" href="../style/add_update_recipe.css">
-    <!--for the recipe display page-->
-    <link rel="stylesheet" type="text/css" href="../style/recipe.css">
-    <script src="../script/server.js"></script>
-    <script src="../script/data_base.js"></script>
-    <title>מתכונים</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="../style/main.css">
+  <!--for the home page-->
+  <link rel="stylesheet" type="text/css" href="../style/home_page.css">
+  <link rel="stylesheet" type="text/css" href="../style/cards.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--for the sign in and up page-->
+  <link rel="stylesheet" type="text/css" href="../style/sign_in_up.css">
+  <!--for the add and update recipe page-->
+  <link rel="stylesheet" type="text/css" href="../style/add_update_recipe.css">
+  <!--for the recipe display page-->
+  <link rel="stylesheet" type="text/css" href="../style/recipe.css">
+  <script src="../script/server.js"></script>
+  <script src="../script/data_base.js"></script>
+  <title>מתכונים</title>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <div>
-                <a href="#" class="link" data-target="home-page" data-category="new">בית</a>
-            </div>
-            <div class="dropdown">
-                <button class="dropbtn">קטגוריות 
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#" class="link" data-target="home-page" data-category="chicken">עוף ובשר</a>
-                    <a href="#" class="link" data-target="home-page" data-category="extras">תוספות</a>
-                    <a href="#" class="link" data-target="home-page" data-category="soups">מרקים</a>
-                    <a href="#" class="link" data-target="home-page" data-category="fish">דגים</a>
-                    <a href="#" class="link" data-target="home-page" data-category="pies">פשטידות</a>
-                    <a href="#" class="link" data-target="home-page" data-category="salads">סלטים</a>
-                    <a href="#" class="link" data-target="home-page" data-category="pastries">לחמים ומאפים</a>
-                </div>
-            </div>
-            <div id="my-recipes">
-                <a href="#" data-target="home-page" data-category="my" class="link">המתכונים שלי</a>
-            </div>
-            <div id="add-recipe">
-              <a href="#" data-target="add-update-recipe" data-recipe="" class="link">הוספת מתכון</a>
-            </div>
-            <div id="login" class="left-nav">
-                <a href="#" class="link" data-target="sign-in-up" class="no-decoration link">התחברות</a>
-            </div>
-            <div id="logout" class="left-nav">
-                שלום <a id="profile" class="link" href="#" data-target="home-page" data-category="my"></a> (<a
-                    id="logout-link" class="link"
-                    href="#" data-target="home-page" data-category="new"
-                    >התנתקות</a
-                >)
-            </div>
-        </nav>
-        <script src="../script/main.js"></script>
-    </header>
-    <main>
-        <div class="page main active" id="home-page" data-category="new">
-            <div class="searchbar">
-                <input id="searchBox" type="text" class="searchbar__input" name="q" placeholder="חפש מתכון" data-search>
-                <div for="searchBox" id="searchBtn" type="submit" class="searchbar__button">
-                  <i class="material-icons">search</i>
-                </div>
-              </div>
-              <h1 class="home">מתכונים חדשים</h1>
-              <div class="main" id="cardContainer" data-card-container>
-                <!-- <div class="recipe-card">
-                  <figure>
-                    <img src="https://assets.codepen.io/17119/anna-tukhfatullina-food-photographer-stylist-Mzy-OjtCI70-unsplash.jpg"
-                      alt="Cover image" />
-                  </figure>
-            
-                  <div class="card-meta">
-                    <p class="dish-type">עיקרי</p>
-            
-                    <ul class="dish-stats">
-                      <li>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M8 2C4.6875 2 2 4.6875 2 8C2 11.3125 4.6875 14 8 14C11.3125 14 14 11.3125 14 8C14 4.6875 11.3125 2 8 2Z"
-                            stroke-miterlimit="10" />
-                          <path d="M8 4V8.5H11" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span class="time">2.5hrs</span>
-                      </li>
-                    </ul>
-                  </div>  end card-meta -->
-            
-                <!-- <h2>Delicious Cake with Pistachio and Raspberries</h2> 
-                </div> end recipe-card -->
-              </div>
-            
-              <template data-recipe-template>
-                <div class="recipe-card">
-                  <figure data-figure>
-                    <img src="" alt="Cover image" data-image />
-                  </figure>
-            
-                  <div class="card-meta">
-                    <p class="dish-type" data-dish></p>
-            
-                    <ul class="dish-stats">
-                      <li>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M8 2C4.6875 2 2 4.6875 2 8C2 11.3125 4.6875 14 8 14C11.3125 14 14 11.3125 14 8C14 4.6875 11.3125 2 8 2Z"
-                            stroke-miterlimit="10" />
-                          <path d="M8 4V8.5H11" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <span class="time" data-time></span>
-                      </li>
-                    </ul>
-                  </div> <!-- end card-meta -->
-            
-                  <h2 class="recipe-name" data-name></h2>
-            
-                </div>
-              </template>
-            <script src="../script/home_page.js"></script> 
+  <header>
+    <nav>
+      <div>
+        <a href="#" class="link" data-target="home-page" data-category="new">בית</a>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">קטגוריות
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#" class="link" data-target="home-page" data-category="chicken">עוף ובשר</a>
+          <a href="#" class="link" data-target="home-page" data-category="extras">תוספות</a>
+          <a href="#" class="link" data-target="home-page" data-category="soups">מרקים</a>
+          <a href="#" class="link" data-target="home-page" data-category="fish">דגים</a>
+          <a href="#" class="link" data-target="home-page" data-category="pies">פשטידות</a>
+          <a href="#" class="link" data-target="home-page" data-category="salads">סלטים</a>
+          <a href="#" class="link" data-target="home-page" data-category="pastries">לחמים ומאפים</a>
         </div>
-        <div class="page" id="sign-in-up">
-            <div class="wrapper">
-                <div id="sign-in" class="form-wrapper sign-in">
-                  <form action="" role="form" onsubmit="signIn(event);" autocomplete="off">
-                    <h2 class="titel">כניסה</h2>
-                    <div class="input-group">
-                      <input type="text" id="userName" required>
-                      <label for="">שם משתמש</label>
-                    </div>
-                    <div class="input-group">
-                      <input type="password" id="pswd" required>
-                      <label for="">סיסמא</label>
-                    </div>
-                    <div class="remember">
-                      <label><input type="checkbox"> זכור משתמש</label>
-                    </div>
-                    <button id="signInBtn" type="submit" data-target="home-page" data-category="new">כניסה</button>
-                    <div class="signUp-link">
-                      <p>עדין אין לך חשבון? <a href="#sign-in-up" class="signUpBtn-link"> הרשמה</a></p>
-                    </div>
-                  </form>
-                </div>
-          
-                <div id="sign-up" class="form-wrapper sign-up">
-                  <form action="" role="form" onsubmit="signUp(event);" id="signUpForm">
-                    <h2 class="titel">הרשמה</h2>
-                    <div class="input-group">
-                      <input type="text" id="user-name" required>
-                      <label for="">שם משתמש</label>
-                    </div>
-                    <div class="input-group">
-                      <input type="email" id="email" required>
-                      <label for="">אמייל</label>
-                    </div>
-                    <div class="input-group">
-                      <input type="password" id="pwd" required>
-                      <label for="">סיסמא</label>
-                    </div>
-                    <button id="signUpBtn" type="submit" data-target="home-page" data-category="new">הירשם</button>
-                    <div class="signUp-link">
-                      <p>יש לך כבר חשבון? <a href="#sign-in-up" class="signInBtn-link">כניסה</a></p>
-                    </div>
-                  </form>
-                </div>
-              </div>
-              <script src="../script/sign_in_up.js"></script>
+      </div>
+      <div id="my-recipes">
+        <a href="#" data-target="home-page" data-category="my" class="link">המתכונים שלי</a>
+      </div>
+      <div id="add-recipe">
+        <a href="#" data-target="add-update-recipe" data-recipe="" class="link">הוספת מתכון</a>
+      </div>
+      <div id="login" class="left-nav">
+        <a href="#" class="link" data-target="sign-in-up" class="no-decoration link">התחברות</a>
+      </div>
+      <div id="logout" class="left-nav">
+        שלום <a id="profile" class="link" href="#" data-target="home-page" data-category="my"></a> (<a id="logout-link"
+          class="link" href="#" data-target="home-page" data-category="new">התנתקות</a>)
+      </div>
+    </nav>
+    <script src="../script/main.js"></script>
+  </header>
+  <main>
+    <div class="page main active" id="home-page" data-category="new">
+      <div class="searchbar">
+        <input id="searchBox" type="text" class="searchbar__input" name="q" placeholder="חפש מתכון" data-search>
+        <div for="searchBox" id="searchBtn" type="submit" class="searchbar__button">
+          <i class="material-icons">search</i>
         </div>
-        <div class="page" id="add-update-recipe" data-recipe="פסטה עם נקניקיות">
-            <h1>הוספת מתכון</h1>
-            <form method="post" onsubmit="return addUpdateRecipe()">
-            <div>
-                <label for="name">שם המתכון: </label>
-                <input type="text" id="name" name="name" required />
-            </div>
-            <div class="image-div">
-                <label for="image">בחירת תמונה<br />
-                <i class="fa fa-2x fa-camera"></i>
-                <input id="image" name="image" type="file" accept="image/png, image/jpg, image/gif, image/jpeg">
-                <br />
-                <span id="imageName">לא נבחרה תמונה</span>
-                </label>
-            </div>
-            <fieldset>
-                <legend>קטגוריות:</legend>
-                <div>
-                <input type="checkbox" id="chicken" name="category" value="chicken" />
-                <label for="chicken">עוף ובשר</label>
-                </div>
-                <div>
-                <input type="checkbox" id="extras" name="category" value="extras" />
-                <label for="extras">תוספות</label>
-                </div>
-                <div>
-                <input type="checkbox" id="soups" name="category" value="soups" />
-                <label for="soups">מרקים</label>
-                </div>
-                <div>
-                <input type="checkbox" id="fish" name="category" value="fish" />
-                <label for="fish">דגים</label>
-                </div>
-                <div>
-                <input type="checkbox" id="pies" name="category" value="pies" />
-                <label for="pies">פשטידות</label>
-                </div>
-                <div>
-                <input type="checkbox" id="salads" name="category" value="salads" />
-                <label for="salads">סלטים</label>
-                </div>
-                <div>
-                <input type="checkbox" id="pastries" name="category" value="pastries" />
-                <label for="pastries">לחמים ומאפים</label>
-                </div>
-            </fieldset>
-            <div>
-                <label for="preptime">זמן הכנה: </label>
-                <input type="number" min="1" id="preptime" name="preptime" required /><span>דקות</span>
-            </div>
-            <div>
-                <label for="cooktime">זמן בישול/אפייה: </label>
-                <input type="number" min="1" id="cooktime" name="cooktime" required /><span>דקות</span>
-            </div>
-            <div>
-                <label for="doses">מספר מנות: </label>
-                <input type="text" pattern="^\d+(-\d+)?" id="doses" name="doses" placeholder="מספר או מספר-מספר" required />
-            </div>
-            <div>
-                <label for="kind">סוג: </label>
-                <select id="kind" name="kind" size="1" multiple required>
-                <option value="בשרי">בשרי</option>
-                <option value="חלבי">חלבי</option>
-                <option value="פרווה">פרווה</option>
-                </select>
-            </div>
-            <fieldset>
-                <legend>רכיבים:</legend>
-                <button id="add-btn" type="button" onclick="addComponent()">+</button>
-                <template>
-                <div>
-                    <input type="text" name="component" required>
-                    <button type="button" onclick="this.parentElement.remove();">&times;</button>
-                </div>
-                </template>
-            </fieldset>
-            <div class="big">
-                <label for="preparation">אופן ההכנה: </label><br>
-                <textarea id="preparation" name="preparation" rows="15" required></textarea>
-            </div>
-            <div class="big">
-                <label for="notes">טיפים והערות: </label><br>
-                <textarea id="notes" name="notes" rows="5"></textarea>
-            </div>
-            <button type="submit" data-target="recipe" data-recipe="">הוספת המתכון</button>
+      </div>
+      <h1 class="home">מתכונים חדשים</h1>
+      <div class="main" id="cardContainer" data-card-container>
+        <template data-recipe-template>
+          <div class="recipe-card">
+            <figure data-figure>
+              <img src="" alt="Cover image" data-image />
+            </figure>
+
+            <div class="card-meta">
+              <p class="dish-type" data-dish></p>
+
+              <ul class="dish-stats">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8 2C4.6875 2 2 4.6875 2 8C2 11.3125 4.6875 14 8 14C11.3125 14 14 11.3125 14 8C14 4.6875 11.3125 2 8 2Z"
+                      stroke-miterlimit="10" />
+                    <path d="M8 4V8.5H11" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span class="time" data-time></span>
+                </li>
+              </ul>
+            </div> <!-- end card-meta -->
+
+            <h2 class="recipe-name" data-name></h2>
+
+          </div>
+        </template>
+        <script src="../script/home_page.js"></script>
+      </div>
+      <div class="page" id="sign-in-up">
+        <div class="wrapper">
+          <div id="sign-in" class="form-wrapper sign-in">
+            <form action="" role="form" onsubmit="signIn(event);" autocomplete="off">
+              <h2 class="titel">כניסה</h2>
+              <div class="input-group">
+                <input type="text" id="userName" required>
+                <label for="">שם משתמש</label>
+              </div>
+              <div class="input-group">
+                <input type="password" id="pswd" required>
+                <label for="">סיסמא</label>
+              </div>
+              <div class="remember">
+                <label><input type="checkbox"> זכור משתמש</label>
+              </div>
+              <button id="signInBtn" type="submit" data-target="home-page" data-category="new">כניסה</button>
+              <div class="signUp-link">
+                <p>עדין אין לך חשבון? <a href="#sign-in-up" class="signUpBtn-link"> הרשמה</a></p>
+              </div>
             </form>
-            <script src="../script/add_update_recipe.js"></script>
+          </div>
+
+          <div id="sign-up" class="form-wrapper sign-up">
+            <form action="" role="form" onsubmit="signUp(event);" id="signUpForm">
+              <h2 class="titel">הרשמה</h2>
+              <div class="input-group">
+                <input type="text" id="user-name" required>
+                <label for="">שם משתמש</label>
+              </div>
+              <div class="input-group">
+                <input type="email" id="email" required>
+                <label for="">אמייל</label>
+              </div>
+              <div class="input-group">
+                <input type="password" id="pwd" required>
+                <label for="">סיסמא</label>
+              </div>
+              <button id="signUpBtn" type="submit" data-target="home-page" data-category="new">הירשם</button>
+              <div class="signUp-link">
+                <p>יש לך כבר חשבון? <a href="#sign-in-up" class="signInBtn-link">כניסה</a></p>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="page" id="recipe" data-recipe="פסטה עם נקניקיות">
-            <div class="recipes">
-                <h1>שם המתכון</h1>
-                <button class="edit link" type="button" title="עריכה" data-target="add-update-recipe" data-recipe=""><img data-target="add-update-recipe" data-recipe="" src="../images/edit_icon.png" alt="עריכה"></button>
-                <button class="edit delete" type="button" title="מחיקה"><img src="../images/delete_icon.png" alt="מחיקה"></button>
-                <img id="image-recipe"
-                    src="https://www.10dakot.co.il/wp-content/uploads/2022/08/%E2%80%8F%E2%80%8FDSC_0010-%D7%A2%D7%95%D7%AA%D7%A7.jpg"
-                    alt="תמונת המתכון">
-                <div class="recipes__header">
-                    <div class="recipes__header__inner">
-                        <div class="recipes__header-doublecol">
-                            <div class="recipes__header-col">
-                                <p>
-                                    זמן הכנה
-                                    <span>דקות</span>
-                                </p>
-                            </div>
-                            <div class="recipes__header-col">
-                                <p>
-                                    זמן בישול/אפייה
-                                    <span>דקות</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="recipes__header-doublecol">
-                            <div class="recipes__header-col">
-                                <p>
-                                    מס' מנות
-                                    <span>מנות</span>
-                                </p>
-                            </div>
-                            <div class="recipes__header-col">
-                                <p>
-                                    סוג
-                                    <span>סוג</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="component" class="content">
-                    <h2>רכיבים</h2>
-                    <p>רכיבים</p>
-                </div>
-                <div id="preparation-recipe" class="content">
-                    <h2>אופן ההכנה</h2>
-                    <p>אופן ההכנה</p>
-                </div>
-                <div id="notes-recipe" class="content">
-                    <h2>טיפים והערות</h2>
-                    <p>טיפים והערות</p>
-                </div>
+        <script src="../script/sign_in_up.js"></script>
+      </div>
+      <div class="page" id="add-update-recipe" data-recipe="פסטה עם נקניקיות">
+        <h1>הוספת מתכון</h1>
+        <form method="post" onsubmit="return addUpdateRecipe()">
+          <div>
+            <label for="name">שם המתכון: </label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="image-div">
+            <label for="image">בחירת תמונה<br />
+              <i class="fa fa-2x fa-camera"></i>
+              <input id="image" name="image" type="file" accept="image/png, image/jpg, image/gif, image/jpeg">
+              <br />
+              <span id="imageName">לא נבחרה תמונה</span>
+            </label>
+          </div>
+          <fieldset>
+            <legend>קטגוריות:</legend>
+            <div>
+              <input type="checkbox" id="chicken" name="category" value="chicken" />
+              <label for="chicken">עוף ובשר</label>
             </div>
-            <script src="../script/recipe.js"></script>
+            <div>
+              <input type="checkbox" id="extras" name="category" value="extras" />
+              <label for="extras">תוספות</label>
+            </div>
+            <div>
+              <input type="checkbox" id="soups" name="category" value="soups" />
+              <label for="soups">מרקים</label>
+            </div>
+            <div>
+              <input type="checkbox" id="fish" name="category" value="fish" />
+              <label for="fish">דגים</label>
+            </div>
+            <div>
+              <input type="checkbox" id="pies" name="category" value="pies" />
+              <label for="pies">פשטידות</label>
+            </div>
+            <div>
+              <input type="checkbox" id="salads" name="category" value="salads" />
+              <label for="salads">סלטים</label>
+            </div>
+            <div>
+              <input type="checkbox" id="pastries" name="category" value="pastries" />
+              <label for="pastries">לחמים ומאפים</label>
+            </div>
+          </fieldset>
+          <div>
+            <label for="preptime">זמן הכנה: </label>
+            <input type="number" min="1" id="preptime" name="preptime" required /><span>דקות</span>
+          </div>
+          <div>
+            <label for="cooktime">זמן בישול/אפייה: </label>
+            <input type="number" min="1" id="cooktime" name="cooktime" required /><span>דקות</span>
+          </div>
+          <div>
+            <label for="doses">מספר מנות: </label>
+            <input type="text" pattern="^\d+(-\d+)?" id="doses" name="doses" placeholder="מספר או מספר-מספר" required />
+          </div>
+          <div>
+            <label for="kind">סוג: </label>
+            <select id="kind" name="kind" size="1" multiple required>
+              <option value="בשרי">בשרי</option>
+              <option value="חלבי">חלבי</option>
+              <option value="פרווה">פרווה</option>
+            </select>
+          </div>
+          <fieldset>
+            <legend>רכיבים:</legend>
+            <button id="add-btn" type="button" onclick="addComponent()">+</button>
+            <template>
+              <div>
+                <input type="text" name="component" required>
+                <button type="button" onclick="this.parentElement.remove();">&times;</button>
+              </div>
+            </template>
+          </fieldset>
+          <div class="big">
+            <label for="preparation">אופן ההכנה: </label><br>
+            <textarea id="preparation" name="preparation" rows="15" required></textarea>
+          </div>
+          <div class="big">
+            <label for="notes">טיפים והערות: </label><br>
+            <textarea id="notes" name="notes" rows="5"></textarea>
+          </div>
+          <button type="submit" data-target="recipe" data-recipe="">הוספת המתכון</button>
+        </form>
+        <script src="../script/add_update_recipe.js"></script>
+      </div>
+      <div class="page" id="recipe" data-recipe="פסטה עם נקניקיות">
+        <div class="recipes">
+          <h1>שם המתכון</h1>
+          <button class="edit link" type="button" title="עריכה" data-target="add-update-recipe" data-recipe=""><img
+              data-target="add-update-recipe" data-recipe="" src="../images/edit_icon.png" alt="עריכה"></button>
+          <button class="edit delete" type="button" title="מחיקה"><img src="../images/delete_icon.png"
+              alt="מחיקה"></button>
+          <img id="image-recipe"
+            src="https://www.10dakot.co.il/wp-content/uploads/2022/08/%E2%80%8F%E2%80%8FDSC_0010-%D7%A2%D7%95%D7%AA%D7%A7.jpg"
+            alt="תמונת המתכון">
+          <div class="recipes__header">
+            <div class="recipes__header__inner">
+              <div class="recipes__header-doublecol">
+                <div class="recipes__header-col">
+                  <p>
+                    זמן הכנה
+                    <span>דקות</span>
+                  </p>
+                </div>
+                <div class="recipes__header-col">
+                  <p>
+                    זמן בישול/אפייה
+                    <span>דקות</span>
+                  </p>
+                </div>
+              </div>
+              <div class="recipes__header-doublecol">
+                <div class="recipes__header-col">
+                  <p>
+                    מס' מנות
+                    <span>מנות</span>
+                  </p>
+                </div>
+                <div class="recipes__header-col">
+                  <p>
+                    סוג
+                    <span>סוג</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="component" class="content">
+            <h2>רכיבים</h2>
+            <p>רכיבים</p>
+          </div>
+          <div id="preparation-recipe" class="content">
+            <h2>אופן ההכנה</h2>
+            <p>אופן ההכנה</p>
+          </div>
+          <div id="notes-recipe" class="content">
+            <h2>טיפים והערות</h2>
+            <p>טיפים והערות</p>
+          </div>
         </div>
-    </main>
-    <script src="../script/spa.js"></script>
+        <script src="../script/recipe.js"></script>
+      </div>
+  </main>
+  <script src="../script/spa.js"></script>
 </body>
+
 </html>
