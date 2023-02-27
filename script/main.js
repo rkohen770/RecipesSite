@@ -6,7 +6,7 @@ function initHeader() {
         document.getElementById("add-recipe").style.display = "none";
     } else {
         document.getElementById("login").style.display = "none";
-        document.getElementById("profile").textContent = JSON.parse(localStorage.currentUser);
+        document.getElementById("profile").textContent = JSON.parse(localStorage.currentUser).username;
         //document.getElementById("logout").style.display = "block";
         //document.getElementById("my-recipes").style.display = "block";   
     }
