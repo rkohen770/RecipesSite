@@ -25,9 +25,9 @@ const app = {
             elementPage.setAttribute('data-category', category);
             currentPage += '/' + category;
         } else if(currentPage !== 'sign-in-up') {
-            let recipe = buttonLink.getAttribute('data-recipe');
-            elementPage.setAttribute('data-recipe', recipe);
-            currentPage += '/' + recipe;
+            let rec = buttonLink.getAttribute('data-recipe');
+            elementPage.setAttribute('data-recipe', rec);
+            currentPage += '/' + rec;
         }
         document.querySelector('.page.active').classList.remove('active');
         elementPage.classList.add('active');

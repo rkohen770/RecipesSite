@@ -117,7 +117,8 @@ main ::selection {
     color: white;
 }
 
-button {
+button,
+.link {
     cursor: pointer;
 }
 

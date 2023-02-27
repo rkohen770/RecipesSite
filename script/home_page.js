@@ -3,11 +3,13 @@ const cardContainer = document.querySelector("[data-card-container]")
 let list_of_recipes = [];
 
 //  <================= Create Cards =================>
+document.getElementById('home-page').addEventListener('show', init);
 init();
 
 function init() {
-
-    var recipeData = JSON.parse(getRecipeData());
+    cardContainer.innerHTML = "";
+    category = document.getElementById('home-page').getAttribute('data-category');
+    var recipeData = getRecipeData(category);
     console.log(recipeData);
     // Create a new recipe card element and set its innerHTML
     for (let i = 0; i < recipeData.length; i++) {
@@ -17,32 +19,37 @@ function init() {
 
 // Create a new recipe card element and set its innerHTML
 function createRecipeCard(recipe) {
-    const recipeCard = dataCardTemplate.content.cloneNode(true).children[0];
+    const recipeCard = dataCardTemplate.content.cloneNode(true);
     recipeCard.querySelector("[data-image]").src = recipe.image;
-    recipeCard.querySelector("[data-dish]").textContent = recipe.kind;
+    recipeCard.querySelector("[data-dish]").textContent = recipe.kind.join('/');
     recipeCard.querySelector("[data-time]").textContent = setTime(recipe.cooktime + recipe.preptime);
     recipeCard.querySelector("[data-name]").textContent = recipe.name;
     cardContainer.appendChild(recipeCard);
+    cardContainer.lastElementChild.setAttribute('data-recipe', recipe.name);
     list_of_recipes.push({ name: recipe.name, kind: recipe.kind, element: recipeCard });
 
     //add event listener to the card    
-    recipeCard.addEventListener("click", function () {
-        window.location.href = "recipe.html";
+    cardContainer.lastElementChild.addEventListener("click", function (ev) {
+        //window.location.href = "recipe.html";
+        app.pageLink(cardContainer.lastElementChild, ev);
     });
 }
 
 //get the recipe data from the server
 
 
-function getRecipeData() {
+function getRecipeData(category) {
     var Data = null;
     var fxhr = new FXMLHttpRequest();
     fxhr.open("GET", "/api/recipes", false);
     fxhr.send();
     if (fxhr.status == 200) {
-        Data = fxhr.responseText;
+        Data = JSON.parse(fxhr.responseText);
     }
-    return Data;
+    if(category === 'new') { //return the most new 12 recipes
+        return Data.sort((r1, r2) => r1.date - r2.date).slice(0, 12);
+    }
+    return Data.filter(r => r.category.includes(category));
 }
 
 //   <=============== End Create Cards ===============>
