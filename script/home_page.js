@@ -1,14 +1,25 @@
 const dataCardTemplate = document.querySelector("[data-recipe-template]")
 const cardContainer = document.querySelector("[data-card-container]")
 let list_of_recipes = [];
+let categories = {chicken: 'עוף ובשר', extras: 'תוספות', soups: 'מרקים',
+ fish: 'דגים', pies: 'פשטידות', salads: 'סלטים', pastries: 'לחמים ומאפים'};
 
 //  <================= Create Cards =================>
 document.getElementById('home-page').addEventListener('show', init);
 init();
 
 function init() {
+    document.title = "מתכונים";
     cardContainer.innerHTML = "";
     category = document.getElementById('home-page').getAttribute('data-category');
+    let h1 = document.querySelector('#home-page h1');
+    if (category === 'my') {
+        h1.textContent = 'המתכונים שלי';
+    } else if (category === 'new') {
+        h1.textContent = 'מתכונים חדשים';
+    } else {
+        h1.textContent = categories[category];
+    }
     var recipeData = getRecipeData(category);
     console.log(recipeData);
     // Create a new recipe card element and set its innerHTML
@@ -48,6 +59,8 @@ function getRecipeData(category) {
     }
     if(category === 'new') { //return the most new 12 recipes
         return Data.sort((r1, r2) => r1.date - r2.date).slice(0, 12);
+    } else if (category === 'my') {
+        return Data.filter(r => r.creator === user.username);
     }
     return Data.filter(r => r.category.includes(category));
 }
