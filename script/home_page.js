@@ -9,6 +9,7 @@ document.getElementById('home-page').addEventListener('show', init);
 init();
 
 function init() {
+    list_of_recipes = [];
     document.title = "מתכונים";
     cardContainer.innerHTML = "";
     category = document.getElementById('home-page').getAttribute('data-category');
@@ -37,8 +38,8 @@ function createRecipeCard(recipe) {
     recipeCard.querySelector("[data-name]").textContent = recipe.name;
     cardContainer.appendChild(recipeCard);
     cardContainer.lastElementChild.setAttribute('data-recipe', recipe.name);
-    list_of_recipes.push({ name: recipe.name, kind: recipe.kind, element: recipeCard });
     let recipeCardElement = cardContainer.lastElementChild;
+    list_of_recipes.push({ name: recipe.name, kind: recipe.kind, element: recipeCardElement });
     //add event listener to the card    
     recipeCardElement.addEventListener("click", function (ev) {
         //window.location.href = "recipe.html";
@@ -49,7 +50,7 @@ function createRecipeCard(recipe) {
 //get the recipe data from the server
 
 
-function getRecipeData(category) {
+function getRecipeData(category = 'all') {
     var Data = null;
     var fxhr = new FXMLHttpRequest();
     fxhr.open("GET", "/api/recipes", false);
@@ -61,6 +62,8 @@ function getRecipeData(category) {
         return Data.sort((r1, r2) => r1.date - r2.date).slice(0, 12);
     } else if (category === 'my') {
         return Data.filter(r => r.creator === user.username);
+    } else if(category === 'all') {
+        return Data;
     }
     return Data.filter(r => r.category.includes(category));
 }
@@ -74,13 +77,24 @@ const searchInput = document.querySelector("[data-search]")
 const searchBtn = document.getElementById("searchBtn");
 
 //add event listener to the search input
-searchInput.addEventListener("input", (e) => {
-    const searchValue = e.target.value;
-    list_of_recipes.forEach((recipe) => {
-        const isVisible = recipe.name.includes(searchValue) ||
-            recipe.kind[0].includes(searchValue);
-        recipe.element.classList.toggle("hidden", !isVisible);
-    });
+searchInput.addEventListener("keyup", (event) => {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        search();
+    }
 });
+searchBtn.addEventListener('click', search);
+
+function search() {
+    const searchValue = searchInput.value.toLowerCase();
+    document.querySelector('#home-page h1').textContent = searchValue;
+    cardContainer.innerHTML = "";
+    getRecipeData('all').forEach((recipe) => {
+        if( recipe.name.toLowerCase().includes(searchValue) || recipe.kind.every(k => k.toLowerCase().includes(searchValue))) {
+            createRecipeCard(recipe);
+        }
+    });
+}
+
 
 //   <=============== End Search Bar ===============>
