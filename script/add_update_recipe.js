@@ -1,6 +1,6 @@
-let indexRecipe = 0;
+/*let indexRecipe = 0;
 let recipe = null;
-let user = localStorage.currentUser? JSON.parse(localStorage.currentUser): null;
+let user = localStorage.currentUser? JSON.parse(localStorage.currentUser): null;*/
 
 /*let input = document.getElementById("image");
 let imageName = document.getElementById("imageName");
@@ -213,17 +213,17 @@ function addUpdateRecipe() {
     return false;
 }
 
-function getRecipe(nameRecipe) {
+/*function getRecipe(nameRecipe) {
     let req = new FXMLHttpRequest();
     req.open('GET', '/api/recipes/' + nameRecipe, false);
     req.send();
     if (req.status === 404) {
         alert("המתכון לא נמצא");
-        location.reload();
+        location.href = 'spa.html';
     } else if (req.status === 200) {
         indexRecipe = req.responseText;
         req.open('GET', '/api/recipes/' + indexRecipe, false);
         req.send();
         return JSON.parse(req.responseText);
     }
-}
+}*/

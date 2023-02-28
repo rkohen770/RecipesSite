@@ -1,5 +1,6 @@
-document.getElementById('recipe').addEventListener('show', (ev) => {
-    let nameRecipe =  ev.target.getAttribute('data-recipe');
+let recipePage = document.getElementById('recipe');
+recipePage.addEventListener('show', (ev) => {
+    let nameRecipe =  recipePage.getAttribute('data-recipe');
     /*recipe = {creator: 'tchelet',
     date: new Date(),
         name: 'פסטה עם נקניקיות',
@@ -27,6 +28,7 @@ document.getElementById('recipe').addEventListener('show', (ev) => {
                 editBtns[i].setAttribute('data-recipe', nameRecipe);
                 editBtns[i].firstElementChild.setAttribute('data-recipe', nameRecipe);
             }
+            editBtns[i].style.display = 'inline-block'
         }
     }
 });
@@ -60,7 +62,7 @@ function removeRecipe() {
             if(httpReq.readyState === 4) {
                 if (httpReq.status === 200) {
                     alert('המתכון נמחק בהצלחה');
-                    location.reload();
+                    location.href = 'spa.html';
                 } else {
                     alert('המחיקה נכשלה');
                 }

@@ -38,11 +38,11 @@ function createRecipeCard(recipe) {
     cardContainer.appendChild(recipeCard);
     cardContainer.lastElementChild.setAttribute('data-recipe', recipe.name);
     list_of_recipes.push({ name: recipe.name, kind: recipe.kind, element: recipeCard });
-
+    let recipeCardElement = cardContainer.lastElementChild;
     //add event listener to the card    
-    cardContainer.lastElementChild.addEventListener("click", function (ev) {
+    recipeCardElement.addEventListener("click", function (ev) {
         //window.location.href = "recipe.html";
-        app.pageLink(cardContainer.lastElementChild, ev);
+        app.pageLink(recipeCardElement, ev);
     });
 }
 

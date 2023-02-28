@@ -1,3 +1,7 @@
+let indexRecipe = 0;
+let recipe = null;
+let user = localStorage.currentUser? JSON.parse(localStorage.currentUser): null;
+
 //convert number of minutes to apropriate time string
 function setTime(minutes) {
     if (minutes >= 60) {
@@ -28,5 +32,21 @@ function setTime(minutes) {
             return "חצי שעה";
         }
         return minutes + " דקות";
+    }
+}
+
+//return the recipe with the recived name
+function getRecipe(nameRecipe) {
+    let req = new FXMLHttpRequest();
+    req.open('GET', '/api/recipes/' + nameRecipe, false);
+    req.send();
+    if (req.status === 404) {
+        alert("המתכון לא נמצא");
+        location.href = 'spa.html';
+    } else if (req.status === 200) {
+        indexRecipe = req.responseText;
+        req.open('GET', '/api/recipes/' + indexRecipe, false);
+        req.send();
+        return JSON.parse(req.responseText);
     }
 }
