@@ -4,7 +4,7 @@ const wrapper = document.querySelector('.wrapper');
 const signUpForm = document.getElementById('signUpForm');
 const userName = document.getElementById('user-name')
 const Uname = JSON.parse(localStorage.getItem('currentUser'))|| document.cookie.split('=')[1];
-userName.innerText += " " + Uname.username;
+//userName.innerText += " " + Uname.username;
 
 
 signUpBtnLink.addEventListener('click', () => {
