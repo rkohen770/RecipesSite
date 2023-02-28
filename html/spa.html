@@ -205,11 +205,11 @@
             </div>
             <div>
                 <label for="cooktime">זמן בישול/אפייה: </label>
-                <input type="number" min="1" id="cooktime" name="cooktime" required /><span>דקות</span>
+                <input type="number" min="0" id="cooktime" name="cooktime" required /><span>דקות</span>
             </div>
             <div>
                 <label for="doses">מספר מנות: </label>
-                <input type="text" pattern="^\d+(-\d+)?" id="doses" name="doses" placeholder="מספר או מספר-מספר" required />
+                <input type="text" pattern="(^\d+((-\d+)|(\s+.*))?$)" id="doses" name="doses" placeholder="מספר או מספר-מספר" required />
             </div>
             <div>
                 <label for="kind">סוג: </label>

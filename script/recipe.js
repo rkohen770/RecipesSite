@@ -47,6 +47,7 @@ function initializeRecipe(recipe) {
     document.querySelector('#preparation-recipe p').innerHTML = recipe.preparation.replaceAll('\n', '<br>');
     if (recipe.notes) {
         document.querySelector('#notes-recipe p').innerHTML = recipe.notes.replace('\n', '<br>');
+        document.getElementById('notes-recipe').style.display = 'block';
     } else {
         document.getElementById('notes-recipe').style.display = 'none';
     }

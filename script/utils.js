@@ -16,6 +16,8 @@ function setTime(minutes) {
         }
         if (m === 0) {
             m = "";
+        } else if (m === 1) {
+            m = " ודקה";
         } else if (m === 15) {
             m = " ורבע";
         } else if (m === 30) {
@@ -25,6 +27,9 @@ function setTime(minutes) {
         }
         return h + m;
     } else {
+        if (minutes === 1) {
+            return "דקה";
+        }
         if (minutes === 15) {
             return "רבע שעה";
         }

@@ -59,7 +59,7 @@ function getRecipeData(category = 'all') {
         Data = JSON.parse(fxhr.responseText);
     }
     if(category === 'new') { //return the most new 12 recipes
-        return Data.sort((r1, r2) => r1.date - r2.date).slice(0, 12);
+        return Data.sort((r1, r2) => r2.date - r1.date).slice(0, 12);
     } else if (category === 'my') {
         return Data.filter(r => r.creator === user.username);
     } else if(category === 'all') {
