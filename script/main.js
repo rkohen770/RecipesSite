@@ -12,7 +12,6 @@ initHeader();
 document.getElementById("logout-link").addEventListener('click', () => {
     // <-- remove user name from local storege -->
     localStorage.removeItem('currentUser');
-    //location.href = "../html/home_page.html";
     location.href = 'spa.html';
 })
 

@@ -42,7 +42,6 @@ function createRecipeCard(recipe) {
     list_of_recipes.push({ name: recipe.name, kind: recipe.kind, element: recipeCardElement });
     //add event listener to the card    
     recipeCardElement.addEventListener("click", function (ev) {
-        //window.location.href = "recipe.html";
         app.pageLink(recipeCardElement, ev);
     });
 }
@@ -77,11 +76,9 @@ const searchInput = document.querySelector("[data-search]")
 const searchBtn = document.getElementById("searchBtn");
 
 //add event listener to the search input
-searchInput.addEventListener("keyup", (event) => {
+searchInput.addEventListener("input", (event) => {
     event.preventDefault();
-    if (event.keyCode === 13) {
         search();
-    }
 });
 searchBtn.addEventListener('click', search);
 
