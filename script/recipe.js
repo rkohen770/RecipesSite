@@ -1,5 +1,6 @@
-document.getElementById('recipe').addEventListener('show', (ev) => {
-    let nameRecipe =  ev.target.getAttribute('data-recipe');
+let recipePage = document.getElementById('recipe');
+recipePage.addEventListener('show', (ev) => {
+    let nameRecipe =  recipePage.getAttribute('data-recipe');
     /*recipe = {creator: 'tchelet',
     date: new Date(),
         name: 'פסטה עם נקניקיות',
@@ -27,6 +28,7 @@ document.getElementById('recipe').addEventListener('show', (ev) => {
                 editBtns[i].setAttribute('data-recipe', nameRecipe);
                 editBtns[i].firstElementChild.setAttribute('data-recipe', nameRecipe);
             }
+            editBtns[i].style.display = 'inline-block'
         }
     }
 });
@@ -45,41 +47,9 @@ function initializeRecipe(recipe) {
     document.querySelector('#preparation-recipe p').innerHTML = recipe.preparation.replaceAll('\n', '<br>');
     if (recipe.notes) {
         document.querySelector('#notes-recipe p').innerHTML = recipe.notes.replace('\n', '<br>');
+        document.getElementById('notes-recipe').style.display = 'block';
     } else {
         document.getElementById('notes-recipe').style.display = 'none';
-    }
-}
-
-//convert number of minutes to apropriate time string
-function setTime(minutes) {
-    if (minutes >= 60) {
-        let m = minutes % 60;
-        let h = (minutes - m) / 60;
-        if (h === 1) {
-            h = "שעה";
-        } else if (h === 2) {
-            h = "שעתיים";
-        } else {
-            h = h + " שעות";
-        }
-        if (m === 0) {
-            m = ""
-        } else if (m === 15) {
-            m = " ורבע";
-        } else if (m === 30) {
-            m = " וחצי";
-        } else {
-            m = ` ו-${m} דקות`;
-        }
-        return h + m;
-    } else {
-        if (minutes === 15) {
-            return "רבע שעה";
-        } 
-        if (minutes === 30) {
-            return "חצי שעה";
-        }
-        return minutes + " דקות";
     }
 }
 
@@ -93,7 +63,7 @@ function removeRecipe() {
             if(httpReq.readyState === 4) {
                 if (httpReq.status === 200) {
                     alert('המתכון נמחק בהצלחה');
-                    location.reload();
+                    location.href = 'spa.html';
                 } else {
                     alert('המחיקה נכשלה');
                 }

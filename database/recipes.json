@@ -2,7 +2,7 @@
     "recipes": [
         {
             "creator": "tchelet",
-            "date": 900000,
+            "date": 1677174774216,
             "name": "פסטה עם נקניקיות",
             "image": "https://www.10dakot.co.il/wp-content/uploads/2022/08/%E2%80%8F%E2%80%8FDSC_0010-%D7%A2%D7%95%D7%AA%D7%A7.jpg",
             "category": [
@@ -31,6 +31,8 @@
             "notes": "*אם במהלך הבישול ראיתם שהפסטה יבשה וחסרים נוזלים יש להוסיף עוד מים לפי הצורך."
         },
         {
+            "creator": "rachel",
+            "date": 1677102827243,
             "name": "חלות",
             "image": "https://heninthekitchen.com/wp-content/uploads/2017/05/IMG_6573-1small-1024x683.jpg",
             "category": [
@@ -55,17 +57,19 @@
             "notes": "אם רוצים להקפיא, לתת להן להצטנן, לעטוף כל חלה בנייר כסף ולהכניס למקפיא. כשרוצים לאכול, לחמם עם הנייר כסף, כמה דקות בתנור חם"
         },
         {
+            "creator": "tchelet",
+            "date": 1677102827230,
             "name": "Mexican Chicken Casserole",
             "image": "https://www.eatwell101.com/wp-content/uploads/2019/08/Mexican-Chicken-Casserole-recipe-2.jpg",
             "category": [
                 "chicken",
-                "main"
+                "extras"
             ],
             "preptime": 15,
             "cooktime": 35,
             "doses": "4",
             "kind": [
-                "mexican"
+                "בשרי"
             ],
             "component": [
                 "1 lb (450g) boneless skinless chicken breast, cut into cubes",
@@ -88,6 +92,8 @@
             "notes": ""
         },
         {
+            "creator": "rachel",
+            "date": 1677102827248,
             "name": "Roasted Vegetables",
             "image": "https://www.eatwell101.com/wp-content/uploads/2019/07/roasted-vegetables-recipe.jpg",
             "category": [
@@ -111,7 +117,126 @@
                 "1 teaspoon garlic powder",
                 "Salt and pepper to taste"
             ],
-            "instructions": "1. Preheat oven to 425°F (220°C).\n2. In a large bowl, mix together sliced vegetables, olive oil, dried thyme, dried rosemary, garlic powder, salt, and pepper.\n3. Spread the vegetables in a single layer on a baking sheet.\n4. Bake for 25-30 minutes or until the vegetables are tender and slightly caramelized. Serve immediately."
+            "preparation": "1. Preheat oven to 425°F (220°C).\n2. In a large bowl, mix together sliced vegetables, olive oil, dried thyme, dried rosemary, garlic powder, salt, and pepper.\n3. Spread the vegetables in a single layer on a baking sheet.\n4. Bake for 25-30 minutes or until the vegetables are tender and slightly caramelized. Serve immediately."
+        },
+        {
+            "creator": "tchelet",
+            "date": 1677350742934,
+            "name": "עוגת שוקולד",
+            "image": "https://metukimil.co.il/wp-content/uploads/2021/08/%D7%A2%D7%95%D7%92%D7%AA-%D7%A9%D7%95%D7%A7%D7%95%D7%9C%D7%93-%D7%A2%D7%A1%D7%99%D7%A1%D7%99%D7%AA-%D7%91%D7%A7%D7%A2%D7%A8%D7%94-%D7%90%D7%97%D7%AA-LC.jpg.webp",
+            "category": [
+                "pastries"
+            ],
+            "preptime": 15,
+            "cooktime": 20,
+            "doses": "10",
+            "kind": [
+                "פרווה"
+            ],
+            "component": [
+                "1.5 כוסות קמח",
+                "כוס סוכר",
+                "חצי כוס קקאו",
+                "2 ביצים",
+                "כפית וחצי אבקת אפייה",
+                "כוס שמן"
+            ],
+            "preparation": "מערבבים את בחומרים היבשים בקערה.\nמוסיפים את החומרים הרטובים ובוחשים עד לקבלת בלילה נוזלית.\nמחממים תנור ל-200 מעלות.\nשופכים את הבלילה לתבנית בינונית ואופים את העוגה למשך כ-20 דקות.",
+            "notes": "ניתן לבדוק אם העוגה מוכנה ע\"י נעיצת קיסם באמצעה, ואם הוא יבש, היא מוכנה."
+        },
+        {
+            "creator": "tchelet",
+            "date": 1677587021868,
+            "name": "מרק איטריות",
+            "image": "https://www.10dakot.co.il/wp-content/uploads/2017/11/DSC_0119.jpg",
+            "category": [
+                "soups"
+            ],
+            "preptime": 15,
+            "cooktime": 23,
+            "doses": "4-5",
+            "kind": [
+                "פרווה"
+            ],
+            "component": [
+                "1 בצל קטן-בינוני קצוץ",
+                "2 שיני שום קצוצות",
+                "חצי כוס קקאו",
+                "1 גזר גדול קלוף חתוך לקוביות קטנטנות",
+                "2 כוסות אטריות דקות",
+                "6 כוסות מים רותחים",
+                "חצי כוס דחוסה עלי פטרוזיליה",
+                "כף אבקת מרק",
+                "רבע כפית כורכום",
+                "כפית מלח",
+                "קמצוץ פלפל שחור"
+            ],
+            "preparation":"מחממים סיר עם 2 כפות שמן ומטגנים את הבצל עד לשקיפות קלה. מוסיפים שום וגזר ומבשלים תוך כדי ערבוב כ-3 דקות.\n\n-מתבלים באבקת מרק, כורכום, מלח ופלפל שחור. מוסיפים 6 כוסות מים רותחים ומערבבים. מביאים לרתיחה על אש גבוהה.\n\n-לאחר שהמים רתחו מוסיפים את האטריות הדקות ועלי הפטרוזיליה. מערבבים ומכסים את הסיר. מבשלים על אש בינונית-נמוכה במשך כ-15 דקות, עד שהאטריות מתבשלות.",
+            "notes":"אם במקרה האטריות ספחו הרבה מהנוזלים, ניתן להוסיף כוס מים נוספת ולשפר תיבול בהתאם."
+        },
+        {
+            "creator": "shani",
+            "date": 1677587954602,
+            "name": "פשטידת ירקות במחבת",
+            "image": "https://www.10dakot.co.il/wp-content/uploads/2018/06/DSC_0041.jpg",
+            "category": [
+                "extras",
+                "pies"
+            ],
+            "preptime": 10,
+            "cooktime": 50,
+            "doses": "4",
+            "kind": [
+                "פרווה"
+            ],
+            "component": [
+                "בצל קטן",
+                "גזר בינוני קלוף",
+                "קישוא בינוני קלוף",
+                "קולורבי קטן קלוף (*אפשר לשים קישוא נוסף במקום)",
+                "תפוח אדמה קטן קלוף",
+                "רבע כוס פטרוזיליה קצוצה דק",
+                "3 ביצים",
+                "2 כפות קמח לבן (לגרסה ללא גלוטן – ניתן לשים קמח תפו”א)",
+                "¾ כפית מלח",
+                "רבע כפית שטוחה כורכום",
+                "רבע כפית שטוחה כמון",
+                "קמצוץ פלפל שחור"
+            ],
+            "preparation":"-מגרדים את כל הירקות בפומפיה גסה, סוחטים מנוזלים ושמים בקערה. מוסיפים את יתר החומרים ומערבבים היטב.\n\n-מחממים מחבת בקוטר 26 ס”מ עם 2-3 כפות שמן (חשוב להשתמש במחבת עם ציפוי שאינו נדבק!). כשהשמן חם, יוצקים את התערובת למחבת ומשטחים לגובה אחיד. מנמיכים לאש בינונית-נמוכה ומבשלים עם מכסה במשך 30 דקות, עד שהפשטידה מתייצבת בחלקה התחתון.\n\n-בעזרת תרווד הופכים בעדינות צד, מכסים ומבשלים 20 דקות נוספות (אם קשה להפוך את הפשטידה עם תרווד, ניתן להפוך את הפשטידה על צלחת שטוחה ולהחזיר למחבת בזהירות).\n\n-מעבירים את הפשטידה לצלחת שטוחה ומניחים לה להתקרר לטמפ’ החדר (הפשטידה מתייצבת לאחר קירור).\n\n\n\n",
+            "notes":""
+        },
+        {
+            "creator": "shani",
+            "date": 1677587558212,
+            "name": "דג מטוגן",
+            "image": "https://www.10dakot.co.il/wp-content/uploads/2021/02/%E2%80%8F%E2%80%8FDSC_0002-%D7%A2%D7%95%D7%AA%D7%A7.jpg",
+            "category": [
+                "extras",
+                "fish"
+            ],
+            "preptime": 10,
+            "cooktime": 10,
+            "doses": "4",
+            "kind": [
+                "פרווה"
+            ],
+            "component": [
+                "7-8 פילטים של מרלוזה , סול או מושט (בלי העור)",
+                "להשריית הדגים: 4 כפות מיץ לימון + שליש כפית מלח",
+                "תערובת הקמח (לערבב בצלחת שטוחה):",
+                "כוס קמח רגיל",
+                "כפית פפריקה מתוקה",
+                "חצי כפית מלח",
+                "תערובת הביצה (לערבב בצלחת עמוקה):",
+                "2 ביצים גדולות",
+                "שליש כפית כורכום",
+                "חצי כפית פפריקה מתוקה",
+                "כפית פטרוזיליה מיובשת (או טריה קצוצה דק)",
+                "מעט פלפל שחור"
+            ],
+            "preparation":"–השריית הדגים: מתבלים את חתיכות הפילה ב4 כפות מיץ מחצי לימון ושליש כפית מלח ומערבבים היטב. מניחים בצד לפחות 15 דקות לפני ההכנה (אם יש לכם זמן- מומלץ להשרות שעה לפני ולשמור במקרר).\n\n-מחממים מחבת רחבה או סיר סוטאז’ עם שמן (רצוי להשתמש במחבת או סיר עם ציפוי שאינו נדבק).\n\n-מצפים קלות את הפילטים בתערובת הקמח משני הצדדים (אין לשטוף לאחר ההשרייה).\n\n-טובלים משני הצדדים בתערובת הביצה וכשהשמן חם מטגנים על אש בינונית-גבוהה במשך 2-3 דקות מכל צד, עד להזהבה יפה. מעבירים לנייר סופג.\n\n",
+            "notes":""
         }
     ]
 }

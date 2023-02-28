@@ -45,7 +45,7 @@ function signUp(e) {
         // <-- insert user name in local storage -->
         localStorage.setItem('currentUser',  JSON.stringify(user));
         //location.href = "../html/home_page.html";
-        location.reload();
+        location.href = 'spa.html';
     }
     else {
         alert("Ooopppssss... Duplicate found!!!\nYou have already sigjned up");
@@ -84,7 +84,7 @@ function signIn(e) {
         // <-- insert user name in local storage -->
         localStorage.setItem('currentUser',  JSON.stringify(user));
         //location.href = "../html/home_page.html";
-        location.reload();
+        location.href = 'spa.html';
     }
     e.preventDefault();
 }
