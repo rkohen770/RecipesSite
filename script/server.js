@@ -97,7 +97,7 @@ class FXMLHttpRequest {
                     this.statusText = "Method Not Allowed";
             }
 
-            if (!(res === -1 || res === "" || res === false || res === undefined || res === null)) {//the request was success
+            if (res && res !== -1 || res === 0) {//the request was success
                 if (res !== true) {
                     this.responseText = JSON.stringify(res);
                 }
@@ -117,7 +117,7 @@ class FXMLHttpRequest {
             }
             this.readyState = 4;
             this.onreadystatechange();
-            if (!(res === -1 || res === "" || res === false || res === undefined || res === null)) this.onload();
+            if (res && res !== -1 || res === 0) this.onload();
         }
 
         if(this._async) {
@@ -127,6 +127,7 @@ class FXMLHttpRequest {
         }
     }
 
+    //return the type of the data and the data the server has to send
     _getRecipes() {
         let recipes = null;
         let address = this._url.split('/');

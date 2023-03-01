@@ -1,13 +1,14 @@
 const dataCardTemplate = document.querySelector("[data-recipe-template]")
 const cardContainer = document.querySelector("[data-card-container]")
 let list_of_recipes = [];
-let categories = {chicken: 'עוף ובשר', extras: 'תוספות', soups: 'מרקים',
+const categories = {chicken: 'עוף ובשר', extras: 'תוספות', soups: 'מרקים',
  fish: 'דגים', pies: 'פשטידות', salads: 'סלטים', pastries: 'לחמים ומאפים'};
 
 //  <================= Create Cards =================>
 document.getElementById('home-page').addEventListener('show', init);
 init();
 
+//initialize the page
 function init() {
     list_of_recipes = [];
     document.title = "מתכונים";
@@ -85,6 +86,7 @@ searchInput.addEventListener("keyup", (event) => {
 });
 searchBtn.addEventListener('click', search);
 
+//set the recipes that fit to the search in the page
 function search() {
     const searchValue = searchInput.value.toLowerCase();
     document.querySelector('#home-page h1').textContent = searchValue;
