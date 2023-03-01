@@ -2,7 +2,8 @@ const dataCardTemplate = document.querySelector("[data-recipe-template]")
 const cardContainer = document.querySelector("[data-card-container]")
 let list_of_recipes = [];
 const categories = {chicken: 'עוף ובשר', extras: 'תוספות', soups: 'מרקים',
- fish: 'דגים', pies: 'פשטידות', salads: 'סלטים', pastries: 'לחמים ומאפים'};
+ fish: 'דגים', pies: 'פשטידות', salads: 'סלטים',
+  pastries: 'לחמים ומאפים', sweets: 'קינוחים ומתוקים'};
 
 //  <================= Create Cards =================>
 document.getElementById('home-page').addEventListener('show', init);
@@ -77,9 +78,11 @@ const searchInput = document.querySelector("[data-search]")
 const searchBtn = document.getElementById("searchBtn");
 
 //add event listener to the search input
-searchInput.addEventListener("input", (event) => {
+searchInput.addEventListener("keyup", (event) => {
     event.preventDefault();
+    if (event.keyCode === 13) {
         search();
+    }
 });
 searchBtn.addEventListener('click', search);
 
@@ -89,7 +92,7 @@ function search() {
     document.querySelector('#home-page h1').textContent = searchValue;
     cardContainer.innerHTML = "";
     getRecipeData('all').forEach((recipe) => {
-        if( recipe.name.toLowerCase().includes(searchValue) || recipe.kind.every(k => k.toLowerCase().includes(searchValue))) {
+        if( recipe.name.toLowerCase().includes(searchValue) || recipe.kind.some(k => k.toLowerCase().includes(searchValue))) {
             createRecipeCard(recipe);
         }
     });
